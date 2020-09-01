@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'homepage.apps.HomepageConfig',
+    'users.apps.UsersConfig',
 ]
 
 REST_FRAMEWORK = {
