@@ -1,4 +1,5 @@
 {% extends "homepage/base.html" %}
+{% load crispy_forms_tag %}
 {% load static %}
 <!DOCTYPE html>
 
@@ -17,7 +18,7 @@
             {% csrf_token %}
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-            {{ form.as_p }}
+            {{ form|crispy }}
             <!-- <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
             <div class="form-group"><input class="form-control" type="password" placeholder="Repeat password"></div> -->

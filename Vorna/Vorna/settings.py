@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ["localhost", "195.114.8.222", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
+    'homepage.apps.HomepageConfig',
+    'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,8 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'homepage.apps.HomepageConfig',
-    'users.apps.UsersConfig',
 ]
 
 REST_FRAMEWORK = {
@@ -144,3 +145,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+
+# Crispy form bootstrap version change
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
