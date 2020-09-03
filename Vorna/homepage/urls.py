@@ -16,7 +16,6 @@ router.register('USDtoRUB', views.USDtoRUBViewSet, basename="USDtoRUB")
 router.register('USDtoAED', views.USDtoAEDViewSet, basename="USDtoAED")
 
 
-
 urlpatterns = [
     path('', views.home, name='home'),
     path('update/', include(router.urls)),

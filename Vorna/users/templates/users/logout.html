@@ -1,0 +1,20 @@
+{% extends "homepage/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block assets %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href={% static 'bootstrap/css/bootstrap.min.css' %}>
+    <link rel="stylesheet" href={% static 'users/fonts/ionicons.min.css' %}>
+    <link rel="stylesheet" href={% static 'users/css/styles.min.css' %}>
+{% endblock assets %}
+
+
+{% block content %}
+    <<h2>شما از حساب کاربری خود خارج شدید</h2>
+    <div class="login-dark">
+        <a class="forgot" href="{% url 'login' %}">دوباره وارد شوید</a>
+    </div>
+    <script src={% static 'bootstrap/js/bootstrap.min.js' %}></script>
+{% endblock content %}
