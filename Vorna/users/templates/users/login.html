@@ -19,7 +19,9 @@
         <form method="POST">
           {% csrf_token %}
             <h2 class="sr-only">ورود</h2>
+            {<div class="illustration"><i class="icon ion-ios-navigate"></i></div>
             {{ form|crispy }}
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">ورود</button></div>}
             <a class="forgot" href="{% url 'register' %}">حساب کاربری ندارید؟</a></form>
             <a class="forgot" href="#">رمز عبور خود را فراموش کردید؟</a></form>
     </div>
