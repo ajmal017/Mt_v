@@ -4,11 +4,20 @@
 	<script src="{% static 'homepage/js/script.js' %}"></script>
 	<script src="{% static 'jquery-ui.min.js' %}"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/base-css.css'%}">
 {% endblock assets %}
 
 
 {% block content %}
-
+	<div class='header'>
+		{% if user.is_authenticated %}
+			<a class="nav-bar-link" href='{% url 'profile' %}'>حساب کاربری</a>
+			<a class="nav-bar-link" href='{% url 'logout' %}'>خروج</a>
+		{% else %}
+			<a class="nav-bar-link" href='{% url 'login' %}'>ورود</a>
+			<a class="nav-bar-link" href='{% url 'register' %}'>ثبت نام</a>
+		{% endif %}
+	</div>
 
 	<div id="header">
 
@@ -76,12 +85,12 @@
 
 	</div>
 
-	<div id="line2"> 
+	<div id="line2">
 	<div class="subline2">شاخص بورس کشورها</div>
 	<div class="subline3">جفت ارزها</div>
 	<div class="subline4">ارز های دیجیتال</div>
 	 </div>
-	 
+
 	<div id="all">
 
 	<div id="shakheshjahani">
@@ -149,44 +158,44 @@
 			<div class="arz">ارز</div><div class="linline"></div>
 			<div class="gheymat">قیمت</div><div class="linline"></div>
 			<div class="taghirat">تغییرات</div>
-			
+
 			</div>
 
 
 				<div class="field" name="name r1">یورو به دلار</div> <div class="linline"></div>
 				<div class="field" name="price" value="row1">price PH</div> <div class="linline"></div>
-				<div class="field" name="change r1">0</div> 
+				<div class="field" name="change r1">0</div>
 				<div class="field" name="name r2">پوند به دلار</div> <div class="linline"></div>
 				<div class="field" name="price" value="row2">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r2">0</div> 
+				<div class="field" name="change r2">0</div>
 
 				<div class="field" name="name r3">بیت کوین</div> <div class="linline"></div>
 				<div class="field" name="price" value="row3">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r3">0</div> 
+				<div class="field" name="change r3">0</div>
 				<div class="field" name="name r4">بیت کوین</div> <div class="linline"></div>
 				<div class="field" name="price" value="row4">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r4">0</div> 
-				
+				<div class="field" name="change r4">0</div>
+
 				<div class="field" name="name r5">بیت کوین</div> <div class="linline"></div>
 				<div class="field" name="price" value="row5">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r5">0</div> 
+				<div class="field" name="change r5">0</div>
 				<div class="field" name="name r6">بیت کوین</div> <div class="linline"></div>
 				<div class="field" name="price" value="row6">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r6">0</div> 
-				
+				<div class="field" name="change r6">0</div>
+
 				<div class="field" name="name r7">بیت کوین</div> <div class="linline"></div>
 				<div class="field" name="price" value="row7">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r7">0</div> 
+				<div class="field" name="change r7">0</div>
 				<div class="field" name="name r8">بیت کوین</div> <div class="linline"></div>
 				<div class="field" name="price" value="row8">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r8">0</div> 
-				
+				<div class="field" name="change r8">0</div>
+
 				<div class="field" name="name r9">بیت کوین</div> <div class="linline"></div>
 				<div class="field" name="price" value="row9">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r9">0</div> 
+				<div class="field" name="change r9">0</div>
 				<div class="field" name="name r10">بیت کوین</div> <div class="linline"></div>
 				<div class="field" name="price" value="row10">بیت کوین</div> <div class="linline"></div>
-				<div class="field" name="change r10">0</div> 
+				<div class="field" name="change r10">0</div>
 
 
 
@@ -198,38 +207,38 @@
 			<div class="arz">ارز</div><div class="linline"></div>
 			<div class="gheymat">قیمت</div><div class="linline"></div>
 			<div class="taghirat">تغییرات</div>
-			
+
 			</div>
 
 
 				<div class="field">بیت کوین</div> <div class="linline"></div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> 
+				<div class="field">بیت کوین</div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> 
-				
+				<div class="field">بیت کوین</div>
+
 				<div class="field">بیت کوین</div> <div class="linline"></div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> 
+				<div class="field">بیت کوین</div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> 
-				
-				
+				<div class="field">بیت کوین</div>
+
+
 				<div class="field">بیت کوین</div> <div class="linline"></div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> 
+				<div class="field">بیت کوین</div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> 
-				
+				<div class="field">بیت کوین</div>
+
 				<div class="field">بیت کوین</div> <div class="linline"></div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> 
+				<div class="field">بیت کوین</div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
 				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> 
+				<div class="field">بیت کوین</div>
 
 
 
@@ -250,9 +259,9 @@
 							<div class="titr1"></div><div class="linline"></div>
 							<div class="titr2"></div><div class="linline"></div>
 							<div class="titr3"></div>
-							
-							
-							
+
+
+
 							<div class="field">بیت کوین</div> <div class="linline"></div>
 							   <div class="field">بیت کوین</div> <div class="linline"></div>
 								 <div class="field">بیت کوین</div>
@@ -268,18 +277,18 @@
 								 <div class="field">بیت کوین</div> <div class="linline"></div>
 							   <div class="field">بیت کوین</div> <div class="linline"></div>
 								 <div class="field">بیت کوین</div>
-						
+
 						</div>
-			
+
 			</div>
 			<div class="boursetag">
 						<div class="titrha" style="background:#28b463">
 							<div class="titr1">کالا</div><div class="linline"></div>
 							<div class="titr2">قیمت کالا</div><div class="linline"></div>
 							<div class="titr3">تغییرات</div>
-							
-							
-							
+
+
+
 							<div class="field">بیت کوین</div> <div class="linline"></div>
 							   <div class="field">بیت کوین</div> <div class="linline"></div>
 								 <div class="field">بیت کوین</div>
@@ -295,18 +304,18 @@
 								 <div class="field">بیت کوین</div> <div class="linline"></div>
 							   <div class="field">بیت کوین</div> <div class="linline"></div>
 								 <div class="field">بیت کوین</div>
-						
+
 						</div>
-			
+
 			</div>
 			<div class="boursetag">
 						<div class="titrha" style="background:#c0392b">
 							<div class="titr1"></div><div class="linline"></div>
 							<div class="titr2"></div><div class="linline"></div>
 							<div class="titr3"></div>
-							
-							
-							
+
+
+
 							<div class="field">بیت کوین</div> <div class="linline"></div>
 							   <div class="field">بیت کوین</div> <div class="linline"></div>
 								 <div class="field">بیت کوین</div>
@@ -322,12 +331,12 @@
 								 <div class="field">بیت کوین</div> <div class="linline"></div>
 							   <div class="field">بیت کوین</div> <div class="linline"></div>
 								 <div class="field">بیت کوین</div>
-						
+
 						</div>
-			
+
 			</div>
-			
-			
+
+
 									<div id="khabar">
 											<div id="titrkhabar">آخرین اخبار</div>
 												{% for khabar in news %}
@@ -335,9 +344,9 @@
 													<a href={{khabar.link}}> {{khabar.text}}</a>
 													</div>
 												{% endfor%}
-									
+
 									</div>
-									
+
 													<div class="lahzeitala">
 														<div class="titrlahzei">
 															<div class="noe">قیمت طلا</div>
@@ -346,9 +355,9 @@
 															<div class="low">کمترین</div>
 															<div class="high">بیشترین</div>
 															<div class="time">زمان</div>
-															
+
 														</div>
-															<div class="boxasli">	
+															<div class="boxasli">
 																<div class="noe1">طلای 18 عیار</div>
 																	<div class="linline1"></div>
 																<div class="noe2">4,765,000</div>
@@ -357,8 +366,8 @@
 																<div class="noe2">4,766,000</div>
 																<div class="noe2">12:35:40</div>
 																<div class="border"></div>
-																
-																
+
+
 																<div class="noe1">طلای 18 عیار</div>
 																	<div class="linline1"></div>
 																<div class="noe2">4,765,000</div>
@@ -367,8 +376,8 @@
 																<div class="noe2">4,766,000</div>
 																<div class="noe2">12:35:40</div>
 																<div class="border"></div>
-																
-																
+
+
 																<div class="noe1">طلای 18 عیار</div>
 																	<div class="linline1"></div>
 																<div class="noe2">4,765,000</div>
@@ -377,8 +386,8 @@
 																<div class="noe2">4,766,000</div>
 																<div class="noe2">12:35:40</div>
 																<div class="border"></div>
-																
-																
+
+
 																<div class="noe1">طلای 18 عیار</div>
 																	<div class="linline1"></div>
 																<div class="noe2">4,765,000</div>
@@ -387,15 +396,15 @@
 																<div class="noe2">4,766,000</div>
 																<div class="noe2">12:35:40</div>
 																<div class="border"></div>
-																
-																
-																
-																
-																
-																
-														
-													
-													
+
+
+
+
+
+
+
+
+
 															</div>
 													</div>
 														<div class="lahzeitala">
@@ -406,9 +415,9 @@
 															<div class="low">کمترین</div>
 															<div class="high">بیشترین</div>
 															<div class="time">زمان</div>
-															
+
 														</div>
-															<div class="boxasli">	
+															<div class="boxasli">
 																<div class="noe1">طلای 18 عیار</div>
 																	<div class="linline1"></div>
 																<div class="noe2">4,765,000</div>
@@ -417,8 +426,8 @@
 																<div class="noe2">4,766,000</div>
 																<div class="noe2">12:35:40</div>
 																<div class="border"></div>
-																
-																
+
+
 																<div class="noe1">طلای 18 عیار</div>
 																	<div class="linline1"></div>
 																<div class="noe2">4,765,000</div>
@@ -427,8 +436,8 @@
 																<div class="noe2">4,766,000</div>
 																<div class="noe2">12:35:40</div>
 																<div class="border"></div>
-																
-																
+
+
 																<div class="noe1">طلای 18 عیار</div>
 																	<div class="linline1"></div>
 																<div class="noe2">4,765,000</div>
@@ -437,8 +446,8 @@
 																<div class="noe2">4,766,000</div>
 																<div class="noe2">12:35:40</div>
 																<div class="border"></div>
-																
-																
+
+
 																<div class="noe1">طلای 18 عیار</div>
 																	<div class="linline1"></div>
 																<div class="noe2">4,765,000</div>
@@ -447,20 +456,20 @@
 																<div class="noe2">4,766,000</div>
 																<div class="noe2">12:35:40</div>
 																<div class="border"></div>
-																
-																
-																
-																
-																
-																
-														
-													
-													
+
+
+
+
+
+
+
+
+
 															</div>
 													</div>
-			
-			
-		
+
+
+
 		 </div>
 
 
@@ -468,5 +477,3 @@
 	</div>
 
 {% endblock content %}
-
-
