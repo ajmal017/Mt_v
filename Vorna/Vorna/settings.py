@@ -25,7 +25,7 @@ SECRET_KEY = '2$9_)8+z2@4a^+rkg_hajteb2qe08lbr+xrnkub(%)y*k##i59'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "195.114.8.222", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "195.114.8.222", "127.0.0.1", "www.markettime.ir"]
 
 
 # Application definition

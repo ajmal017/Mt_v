@@ -82,7 +82,7 @@
                                   role="menu">
                                   <h6 class="dropdown-header">alerts center</h6>
                                   <a class="d-flex align-items-center dropdown-item" href="#">
-                                      <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="assets/img/avatars/avatar4.jpeg">
+                                      <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="{{ user.profile.image.url }}">
                                           <div class="bg-success status-indicator"></div>
                                       </div>
                                       <div class="font-weight-bold">
@@ -211,10 +211,10 @@
                                   <form>
                                       <div class="form-row">
                                           <div class="col">
-                                              <div class="form-group"><label for="username"><strong>Username</strong></label><input class="form-control" type="text" placeholder="user.name" name="username">{{user.username}}</div>
+                                              <div class="form-group"><label for="username"><strong>Username</strong></label><input class="form-control" type="text" placeholder="{{user.username}}" name="username"></div>
                                           </div>
                                           <div class="col">
-                                              <div class="form-group"><label for="email"><strong>Email Address</strong></label><input class="form-control" type="email" placeholder="user@example.com" name="email">{{user.email}}</div>
+                                              <div class="form-group"><label for="email"><strong>Email Address</strong></label><input class="form-control" type="email" placeholder="{{user.email}}" name="email"></div>
                                           </div>
                                       </div>
                                       <div class="form-row">
