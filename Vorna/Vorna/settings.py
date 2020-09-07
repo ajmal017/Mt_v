@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'google_analytics',
 ]
 
 REST_FRAMEWORK = {
@@ -156,3 +157,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+
+# Google Analytics tracking code
+
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': 'UA-177395980-1',
+}
