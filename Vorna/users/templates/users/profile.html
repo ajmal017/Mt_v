@@ -208,18 +208,28 @@
                                   <p class="text-primary m-0 font-weight-bold">User Settings</p>
                               </div>
                               <div class="card-body">
-                                  <form>
+                                  <form method="POST">
+                                    {% csrf_token %}
                                       <div class="form-row">
                                           <div class="col">
-                                              <div class="form-group"><label for="username"><strong>Username</strong></label><input class="form-control" type="text" placeholder="{{user.username}}" name="username"></div>
+                                                {{ u_form.username.errors }}
+                                              <div class="form-group"><label for="username"><strong>Username</strong></label>
+                                                {{ u_form.username }}
+                                              </div>
                                           </div>
                                           <div class="col">
-                                              <div class="form-group"><label for="email"><strong>Email Address</strong></label><input class="form-control" type="email" placeholder="{{user.email}}" name="email"></div>
+                                                {{ u_form.email.errors }}
+                                              <div class="form-group"><label for="email"><strong>Email Address</strong></label>
+                                                {{ u_form.email }}
+                                              </div>
                                           </div>
                                       </div>
                                       <div class="form-row">
                                           <div class="col">
-                                              <div class="form-group"><label for="first_name"><strong>First Name</strong></label><input class="form-control" type="text" placeholder="John" name="first_name"></div>
+                                                {{ p_form.image.errors }}
+                                              <div class="form-group"><label for="first_name"><strong>Profile Picture</strong></label>
+                                                {{ p_form.image }}
+                                              </div>
                                           </div>
                                           <div class="col">
                                               <div class="form-group"><label for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" placeholder="Doe" name="last_name"></div>
