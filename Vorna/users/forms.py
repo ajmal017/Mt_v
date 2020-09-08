@@ -7,6 +7,12 @@ from core.models import Profile
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
 
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("ایمیل شما تکراری می باشد")
+        return self.cleaned_data
+
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
