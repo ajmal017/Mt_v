@@ -1,15 +1,15 @@
 $(function() {
 	var dict = {
-		"row1": "http://195.114.8.222/update/EURtoUSD/latest/",
-		"row2": "http://195.114.8.222/update/GBPtoUSD/latest/",
-		"row3": "http://195.114.8.222/update/AUDtoUSD/latest/",
-		"row4": "http://195.114.8.222/update/USDtoCAD/latest/",
-		"row5": "http://195.114.8.222/update/USDtoJPY/latest/",
-		"row6": "http://195.114.8.222/update/USDtoINR/latest/",
-		"row7": "http://195.114.8.222/update/USDtoTRY/latest/",
-		"row8": "http://195.114.8.222/update/USDtoCNY/latest/",
-		"row9": "http://195.114.8.222/update/USDtoRUB/latest/",
-		"row10": "http://195.114.8.222/update/USDtoAED/latest/"
+		"row1": "https://195.114.8.222/update/EURtoUSD/latest/",
+		"row2": "https://195.114.8.222/update/GBPtoUSD/latest/",
+		"row3": "https://195.114.8.222/update/AUDtoUSD/latest/",
+		"row4": "https://195.114.8.222/update/USDtoCAD/latest/",
+		"row5": "https://195.114.8.222/update/USDtoJPY/latest/",
+		"row6": "https://195.114.8.222/update/USDtoINR/latest/",
+		"row7": "https://195.114.8.222/update/USDtoTRY/latest/",
+		"row8": "https://195.114.8.222/update/USDtoCNY/latest/",
+		"row9": "https://195.114.8.222/update/USDtoRUB/latest/",
+		"row10": "https://195.114.8.222/update/USDtoAED/latest/"
 	};
 	
 	
