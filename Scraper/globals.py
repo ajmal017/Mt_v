@@ -1,6 +1,5 @@
 import os
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 
 # Clear
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
@@ -9,7 +8,7 @@ clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 options = webdriver.ChromeOptions()
 prefs = {"profile.managed_default_content_settings.images": 2}
 options.add_argument("--log-level=3")
-options.add_argument("--headless")
+# options.add_argument("--headless")
 options.add_experimental_option("prefs", prefs)
 
 # Exchange rate price selector
