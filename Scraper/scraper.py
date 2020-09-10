@@ -4,7 +4,9 @@ import time
 import globals
 from selenium import webdriver
 from colorama import Fore, Style, init
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 init()
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 def start():
@@ -17,14 +19,12 @@ def start():
     url = sys.argv[1]
     api_url = sys.argv[2]
     driver = webdriver.Chrome("chromedriver.exe", options=globals.options)
-    globals.clear()
     driver.get(url)
     print("Opening page")
     last_price = None
     err_count = 0
     while 1:
         try:
-            globals.clear()
             price = driver.find_element_by_css_selector(globals.selector)
             price_text = price.text
             if price_text == last_price:
