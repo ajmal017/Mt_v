@@ -4,15 +4,15 @@ from subprocess import Popen, PIPE
 def main():
     scrape_url = [
         "https://www.tradingview.com/symbols/EURUSD/",
-        "https://www.tradingview.com/symbols/GBPUSD/?exchange=OANDA",
-        "https://www.tradingview.com/symbols/AUDUSD/?exchange=FX",
-        "https://www.tradingview.com/symbols/USDCAD/?exchange=OANDA",
-        "https://www.tradingview.com/symbols/USDJPY/?exchange=OANDA",
-        "https://www.tradingview.com/symbols/USDINR/?exchange=FX_IDC",
-        "https://www.tradingview.com/symbols/USDTRY/?exchange=OANDA",
-        "https://www.tradingview.com/symbols/USDCNY/?exchange=FX_IDC",
-        "https://www.tradingview.com/symbols/USDAED/?exchange=FX_IDC",
-        "https://www.tradingview.com/symbols/USDRUB/?exchange=FOREXCOM"
+        # "https://www.tradingview.com/symbols/GBPUSD/?exchange=OANDA",
+        # "https://www.tradingview.com/symbols/AUDUSD/?exchange=FX",
+        # "https://www.tradingview.com/symbols/USDCAD/?exchange=OANDA",
+        # "https://www.tradingview.com/symbols/USDJPY/?exchange=OANDA",
+        # "https://www.tradingview.com/symbols/USDINR/?exchange=FX_IDC",
+        # "https://www.tradingview.com/symbols/USDTRY/?exchange=OANDA",
+        # "https://www.tradingview.com/symbols/USDCNY/?exchange=FX_IDC",
+        # "https://www.tradingview.com/symbols/USDAED/?exchange=FX_IDC",
+        # "https://www.tradingview.com/symbols/USDRUB/?exchange=FOREXCOM"
     ]
     api_url = {
         "https://www.tradingview.com/symbols/EURUSD/": "https//www.markettime.ir/update/EURtoUSD/",
