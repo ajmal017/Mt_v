@@ -1,5 +1,9 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
+
+# Clear
+clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 # Webdriver options
 options = webdriver.ChromeOptions()
@@ -17,4 +21,3 @@ header = {
 }
 
 # API endpoint URLs
-
