@@ -128,8 +128,8 @@ class AllCurrencyViewSet(generics.GenericAPIView):
             "request": request,
         }
 
-        usd_serializer = EURtoUSDSerializer(eurusd, context=context)
-        gbp_serializer = GBPtoUSDSerializer(gbpusd, context=context)
+        usd_serializer = serializers.EURtoUSDSerializer(eurusd, context=context)
+        gbp_serializer = serializers.GBPtoUSDSerializer(gbpusd, context=context)
 
         response = usd_serializer + gbp_serializer
 
