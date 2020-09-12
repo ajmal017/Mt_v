@@ -45,27 +45,38 @@ def home(request):
     # return HttpResponse('<h1>Blog Home</h1>')
 
 
-class CurrencyViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
-    """Manage Currency add or get"""
-
+class CurrencyExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
     # authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    queryset = Currency.objects.all()
-    serializer_class = serializers.CurrencySerializer
-
-
-class ExchangeBaseClass(generics.ListCreateAPIView, viewsets.GenericViewSet, mixins.CreateModelMixin):
-    permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
-
+    queryset = CurrencyExchange.objects().all()
+    serializer_class = serializers.CurrencyExchangeSerializer
 
     @action(methods=['GET'], permission_classes=[IsAuthenticatedOrReadOnly], url_path='latest', detail=False)
     def get_latest(self, request, pk=None):
-        latest = self.serializer_class.Meta.model.objects.last()
+        latest = CurrencyExchange.objects.last()
         serializer = self.serializer_class(latest)
         return Response(serializer.data)
 
 
+# class CurrencyViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
+#     """Manage Currency add or get"""
+#
+#     # authentication_classes = (TokenAuthentication,)
+#     permission_classes = (IsAuthenticated,)
+#     queryset = Currency.objects.all()
+#     serializer_class = serializers.CurrencySerializer
+#
+#
+# class ExchangeBaseClass(generics.ListCreateAPIView, viewsets.GenericViewSet, mixins.CreateModelMixin):
+#     permission_classes = (IsAuthenticated,)
+#     authentication_classes = (TokenAuthentication,)
+#
+#
+#     @action(methods=['GET'], permission_classes=[IsAuthenticatedOrReadOnly], url_path='latest', detail=False)
+#     def get_latest(self, request, pk=None):
+#         latest = self.serializer_class.Meta.model.objects.last()
+#         serializer = self.serializer_class(latest)
+#         return Response(serializer.data)
 # class EURtoUSDViewSet(ExchangeBaseClass):
 #     queryset = EURtoUSD.objects.all()
 #     serializer_class = serializers.EURtoUSDSerializer
@@ -96,16 +107,3 @@ class ExchangeBaseClass(generics.ListCreateAPIView, viewsets.GenericViewSet, mix
 # class USDtoAEDViewSet(ExchangeBaseClass):
 #     queryset = USDtoAED.objects.all()
 #     serializer_class = serializers.USDtoAEDSerializer
-
-
-class CurrencyExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
-    # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-    queryset = CurrencyExchange.objects().all()
-    serializer_class = serializers.CurrencyExchangeSerializer
-
-    @action(methods=['GET'], permission_classes=[IsAuthenticatedOrReadOnly], url_path='latest', detail=False)
-    def get_latest(self, request, pk=None):
-        latest = CurrencyExchange.objects.last()
-        serializer = self.serializer_class(latest)
-        return Response(serializer.data)
