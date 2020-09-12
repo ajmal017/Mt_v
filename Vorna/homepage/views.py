@@ -130,7 +130,8 @@ class AllCurrencyViewSet(generics.GenericAPIView):
 
         usd_serializer = serializers.EURtoUSDSerializer(eurusd, context=context)
         gbp_serializer = serializers.GBPtoUSDSerializer(gbpusd, context=context)
-
-        response = usd_serializer.data + gbp_serializer.data
+        response = {}
+        response.update(usd_serializer.data)
+        response.update(gbp_serializer.data)
 
         return Response(response)
