@@ -116,7 +116,7 @@ class USDtoAEDViewSet(ExchangeBaseClass):
     serializer_class = serializers.USDtoAEDSerializer
 
 
-class AllCurrencyViewSet(viewsets.GenericViewSet):
+class AllCurrencyViewSet(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
 

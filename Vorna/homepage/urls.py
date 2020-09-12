@@ -14,10 +14,10 @@ router.register('USDtoTRY', views.USDtoTRYViewSet, basename="USDtoTRY")
 router.register('USDtoCNY', views.USDtoCNYViewSet, basename="USDtoCNY")
 router.register('USDtoRUB', views.USDtoRUBViewSet, basename="USDtoRUB")
 router.register('USDtoAED', views.USDtoAEDViewSet, basename="USDtoAED")
-router.register("allCurrency", views.AllCurrencyViewSet, basename="allcurrency")
 
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('update/', include(router.urls)),
+    path('update/allCurrency', views.AllCurrencyViewSet, name="allCurrency")
 ]
