@@ -47,7 +47,7 @@ $(function() {
 			}
 		});
 		$("[name='price']").each(function(){
-			var ad = "https://www.markettime.ir/update/CurrencyExchange/"
+			var ad = "https://www.markettime.ir/update/CurrencyExchange/latest/"
 			var el = $(this)
 			var t = $(this).text()
 			$.ajax({
