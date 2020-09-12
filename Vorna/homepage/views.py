@@ -47,7 +47,7 @@ def home(request):
 
 class CurrencyExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
     # authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = CurrencyExchange.objects.all()
     serializer_class = serializers.CurrencyExchangeSerializer
 

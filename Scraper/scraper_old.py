@@ -5,17 +5,20 @@ from timeit import default_timer as timer
 import globals
 from datetime import datetime
 from selenium import webdriver
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from colorama import Fore, Style, init
 init()
-
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 
 class Crawler():
 
     driver = webdriver.Chrome("chromedriver.exe", options=globals.options)
+    req_url= "https://www.markettime.ir/update/CurrencyExchange/"
+
     scrape_url = {
         "https://www.tradingview.com/symbols/EURUSD/": "EURUSD",
         "https://www.tradingview.com/symbols/GBPUSD/?exchange=OANDA": "GBPUSD",
@@ -42,13 +45,17 @@ class Crawler():
         "https://www.tradingview.com/symbols/USDAED/?exchange=FX_IDC": "http://localhost/update/USDtoAED/"
     }
 
+    # Windows dictionary contains handles and url names
+    # handle : url_name
     windows = {}
 
     def identify(self):
+        # Identify each page handle and store them
+        print("Identifying pages...")
         for window in self.driver.window_handles:
-            handle = window
+            self.driver.switch_to.window(window)
             url_name = self.scrape_url[self.driver.current_url]
-            self.windows[handle] = url_name
+            self.windows[window] = url_name
 
 
     def send_data(self, payload):
@@ -79,6 +86,7 @@ class Crawler():
                 self.driver.execute_script(f'''window.open("{url}","_blank");''')
 
             self.identify()
+            print(self.windows)
             while 1:
                 # clear()
                 print("Visiting pages...")
@@ -90,24 +98,20 @@ class Crawler():
                         self.driver.switch_to.window(window)
                         price = self.driver.find_element_by_css_selector(globals.selector)
                         price_text = price.text
-                        params['rate'] = price_text
-                        if window in last_prices:
-                            if price_text != last_prices[window]:
-                                # r = requests.post(req_url, data=params, headers=globals.header)
-                                print(f"Page {i} Visited, status -> {Fore.GREEN}{price.text}{Style.RESET_ALL}")
-                                # print(r.text)
-                            else:
-                                print(f"Page {i} --Unchanged--")
-                        last_prices[window] = price_text
-                        print(end-start)
-
+                        print(self.windows[window])
+                        params[self.windows[window]] = price_text
+                        print(f"Page {i} Visited, status -> {Fore.GREEN}{price.text}{Style.RESET_ALL}")
                     except KeyboardInterrupt:
                         raise
                     except Exception as e:
                         print(f"Page {i} Visited, status -> {Fore.RED}{e}{Style.RESET_ALL}")
                     i += 1
+                print(params)
+                r = requests.post(self.req_url, data=params, headers=globals.header, verify=False)
+                print(r.text)
                 t1 = timer()
-                time.sleep(2)
+                print(f"Batch ended after {t1-t} secs.")
+                time.sleep(1)
         except KeyboardInterrupt:
             raise
         except Exception as e:
