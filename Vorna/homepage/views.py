@@ -66,72 +66,46 @@ class ExchangeBaseClass(generics.ListCreateAPIView, viewsets.GenericViewSet, mix
         return Response(serializer.data)
 
 
-class EURtoUSDViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
-    serializer_class = serializers.EURtoUSDSerializer
+# class EURtoUSDViewSet(ExchangeBaseClass):
+#     queryset = EURtoUSD.objects.all()
+#     serializer_class = serializers.EURtoUSDSerializer
+# class GBPtoUSDViewSet(ExchangeBaseClass):
+#     queryset = GBPtoUSD.objects.all()
+#     serializer_class = serializers.GBPtoUSDSerializer
+# class AUDtoUSDViewSet(ExchangeBaseClass):
+#     queryset = AUDtoUSD.objects.all()
+#     serializer_class = serializers.AUDtoUSDSerializer
+# class USDtoCADViewSet(ExchangeBaseClass):
+#     queryset = USDtoCAD.objects.all()
+#     serializer_class = serializers.USDtoCADSerializer
+# class USDtoJPYViewSet(ExchangeBaseClass):
+#     queryset = USDtoJPY.objects.all()
+#     serializer_class = serializers.USDtoJPYSerializer
+# class USDtoINRViewSet(ExchangeBaseClass):
+#     queryset = USDtoINR.objects.all()
+#     serializer_class = serializers.USDtoINRSerializer
+# class USDtoTRYViewSet(ExchangeBaseClass):
+#     queryset = USDtoTRY.objects.all()
+#     serializer_class = serializers.USDtoTRYSerializer
+# class USDtoCNYViewSet(ExchangeBaseClass):
+#     queryset = USDtoCNY.objects.all()
+#     serializer_class = serializers.USDtoCNYSerializer
+# class USDtoRUBViewSet(ExchangeBaseClass):
+#     queryset = USDtoRUB.objects.all()
+#     serializer_class = serializers.USDtoRUBSerializer
+# class USDtoAEDViewSet(ExchangeBaseClass):
+#     queryset = USDtoAED.objects.all()
+#     serializer_class = serializers.USDtoAEDSerializer
 
 
-class GBPtoUSDViewSet(ExchangeBaseClass):
-    queryset = GBPtoUSD.objects.all()
-    serializer_class = serializers.GBPtoUSDSerializer
-
-
-class AUDtoUSDViewSet(ExchangeBaseClass):
-    queryset = AUDtoUSD.objects.all()
-    serializer_class = serializers.AUDtoUSDSerializer
-
-
-class USDtoCADViewSet(ExchangeBaseClass):
-    queryset = USDtoCAD.objects.all()
-    serializer_class = serializers.USDtoCADSerializer
-
-
-class USDtoJPYViewSet(ExchangeBaseClass):
-    queryset = USDtoJPY.objects.all()
-    serializer_class = serializers.USDtoJPYSerializer
-
-
-class USDtoINRViewSet(ExchangeBaseClass):
-    queryset = USDtoINR.objects.all()
-    serializer_class = serializers.USDtoINRSerializer
-
-
-class USDtoTRYViewSet(ExchangeBaseClass):
-    queryset = USDtoTRY.objects.all()
-    serializer_class = serializers.USDtoTRYSerializer
-
-
-class USDtoCNYViewSet(ExchangeBaseClass):
-    queryset = USDtoCNY.objects.all()
-    serializer_class = serializers.USDtoCNYSerializer
-
-
-class USDtoRUBViewSet(ExchangeBaseClass):
-    queryset = USDtoRUB.objects.all()
-    serializer_class = serializers.USDtoRUBSerializer
-
-
-class USDtoAEDViewSet(ExchangeBaseClass):
-    queryset = USDtoAED.objects.all()
-    serializer_class = serializers.USDtoAEDSerializer
-
-
-class AllCurrencyViewSet(generics.GenericAPIView):
+class CurrencyExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
+    # authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
-    authentication_classes = (TokenAuthentication,)
+    queryset = CurrencyExchange.objects().all()
+    serializer_class = serializers.CurrencyExchangeSerializer
 
-    def get(self, request, pk=None):
-        eurusd = EURtoUSD.objects.last()
-        gbpusd = GBPtoUSD.objects.last()
-
-        context = {
-            "request": request,
-        }
-
-        usd_serializer = serializers.EURtoUSDSerializer(eurusd, context=context)
-        gbp_serializer = serializers.GBPtoUSDSerializer(gbpusd, context=context)
-        response = {}
-        response.update(usd_serializer.data)
-        response.update(gbp_serializer.data)
-
-        return Response(response)
+    @action(methods=['GET'], permission_classes=[IsAuthenticatedOrReadOnly], url_path='latest', detail=False)
+    def get_latest(self, request, pk=None):
+        latest = CurrencyExchange.objects.last()
+        serializer = self.serializer_class(latest)
+        return Response(serializer.data)

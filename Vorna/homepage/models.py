@@ -10,8 +10,8 @@ class Currency(models.Model):
     non_base_currency = models.CharField(max_length=255)
     value = models.DecimalField(max_digits=20, decimal_places=8)
     timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
-    
-    
+
+
 class Currency_base(models.Model):
     """Base model for currency tables."""
     rate = models.DecimalField(max_digits=25, decimal_places=10)
@@ -19,47 +19,38 @@ class Currency_base(models.Model):
 
     class Meta:
         abstract = True
-    
-    
-# to USD
-    
-class EURtoUSD(Currency_base):
-    pass
-    
 
-class GBPtoUSD(Currency_base):
-    pass
-    
- 
-class AUDtoUSD(Currency_base):
-    pass
-    
-  
-# USD TO
-  
-class USDtoCAD(Currency_base):
-    pass
-  
-  
-class USDtoJPY(Currency_base):
-    pass
-    
-    
-class USDtoINR(Currency_base):
-    pass
-    
-   
-class USDtoTRY(Currency_base):
-    pass
-    
-  
-class USDtoCNY(Currency_base):
-    pass  
-    
-    
-class USDtoRUB(Currency_base):
-    pass  
-    
-    
-class USDtoAED(Currency_base):
-    pass 
+class CurrencyExchange(models.Model):
+    """Currency Exchange rates."""
+    EURUSD = models.DecimalField(max_digits=20, decimal_places=10)
+    GBPUSD = models.DecimalField(max_digits=20, decimal_places=10)
+    AUDUSD = models.DecimalField(max_digits=20, decimal_places=10)
+    USDCAD = models.DecimalField(max_digits=20, decimal_places=10)
+    USDJPY = models.DecimalField(max_digits=20, decimal_places=10)
+    USDINR = models.DecimalField(max_digits=20, decimal_places=10)
+    USDTRY = models.DecimalField(max_digits=20, decimal_places=10)
+    USDCNY = models.DecimalField(max_digits=20, decimal_places=10)
+    USDRUB = models.DecimalField(max_digits=20, decimal_places=10)
+    USDAED = models.DecimalField(max_digits=20, decimal_places=10)
+    timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+# class EURtoUSD(Currency_base):
+#     pass
+# class GBPtoUSD(Currency_base):
+#     pass
+# class AUDtoUSD(Currency_base):
+#     pass
+# class USDtoCAD(Currency_base):
+#     pass
+# class USDtoJPY(Currency_base):
+#     pass
+# class USDtoINR(Currency_base):
+#     pass
+# class USDtoTRY(Currency_base):
+#     pass
+# class USDtoCNY(Currency_base):
+#     pass
+# class USDtoRUB(Currency_base):
+#     pass
+# class USDtoAED(Currency_base):
+#     pass
