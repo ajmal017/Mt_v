@@ -46,7 +46,14 @@ class Crawler():
 
     def identify(self):
         for window in self.driver.window_handles:
-            pass
+            handle = window
+            url_name = self.scrape_url[self.driver.current_url]
+            self.windows[handle] = url_name
+
+
+    def send_data(self, payload):
+        pass
+
 
     def crawl(self):
         clear()
@@ -60,41 +67,47 @@ class Crawler():
                 ============================================================
         """)
         try:
+            # After opening the driver, we don't want a dangling tab
+            # So open the first url manually
             self.driver.get("https://www.tradingview.com/symbols/EURUSD/")
             print("Opening pages...")
-            # Maybe I can get handles while opening pages
-            # and identify them on the go
-            # If not possible, We use identify() to give name to each handle
-            for url in self.scrape_url[1:]:
+
+            # We get the handle of each page opened
+            # Store their handle and assign a value (short name of url)
+            # Then collect data and pack it in a json according to name
+            for url in list(self.scrape_url.keys())[1:]:
                 self.driver.execute_script(f'''window.open("{url}","_blank");''')
+
+            self.identify()
             while 1:
-                clear()
+                # clear()
                 print("Visiting pages...")
                 i = 1
-                for window in self.driver.window_handles:
+                t = timer()
+                params = {}
+                for window in self.windows.keys():
                     try:
                         self.driver.switch_to.window(window)
                         price = self.driver.find_element_by_css_selector(globals.selector)
-                        params = {}
-                        params['rate'] = price.text
-                        current_url = self.driver.current_url
-                        req_url = self.API_url[current_url]
-                        if current_url in last_prices:
-                            if price.text != last_prices[current_url]:
-                                r = requests.post(req_url, data=params, headers=globals.header)
+                        price_text = price.text
+                        params['rate'] = price_text
+                        if window in last_prices:
+                            if price_text != last_prices[window]:
+                                # r = requests.post(req_url, data=params, headers=globals.header)
                                 print(f"Page {i} Visited, status -> {Fore.GREEN}{price.text}{Style.RESET_ALL}")
-                                print(r.text)
+                                # print(r.text)
                             else:
                                 print(f"Page {i} --Unchanged--")
-                        last_prices[current_url] = price.text
+                        last_prices[window] = price_text
+                        print(end-start)
 
                     except KeyboardInterrupt:
                         raise
                     except Exception as e:
                         print(f"Page {i} Visited, status -> {Fore.RED}{e}{Style.RESET_ALL}")
                     i += 1
-
-                # time.sleep(3)
+                t1 = timer()
+                time.sleep(2)
         except KeyboardInterrupt:
             raise
         except Exception as e:

@@ -72,45 +72,65 @@ class EURtoUSDViewSet(ExchangeBaseClass):
 
 
 class GBPtoUSDViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = GBPtoUSD.objects.all()
     serializer_class = serializers.GBPtoUSDSerializer
 
 
 class AUDtoUSDViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = AUDtoUSD.objects.all()
     serializer_class = serializers.AUDtoUSDSerializer
 
 
 class USDtoCADViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = USDtoCAD.objects.all()
     serializer_class = serializers.USDtoCADSerializer
 
 
 class USDtoJPYViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = USDtoJPY.objects.all()
     serializer_class = serializers.USDtoJPYSerializer
 
 
 class USDtoINRViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = USDtoINR.objects.all()
     serializer_class = serializers.USDtoINRSerializer
 
 
 class USDtoTRYViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = USDtoTRY.objects.all()
     serializer_class = serializers.USDtoTRYSerializer
 
 
 class USDtoCNYViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = USDtoCNY.objects.all()
     serializer_class = serializers.USDtoCNYSerializer
 
 
 class USDtoRUBViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = USDtoRUB.objects.all()
     serializer_class = serializers.USDtoRUBSerializer
 
 
 class USDtoAEDViewSet(ExchangeBaseClass):
-    queryset = EURtoUSD.objects.all()
+    queryset = USDtoAED.objects.all()
     serializer_class = serializers.USDtoAEDSerializer
+
+
+class AllCurrencyViewSet(generics.GenericAPIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+
+    def get(self, request, pk=None):
+        eurusd = EURtoUSD.objects.last()
+        gbpusd = GBPtoUSD.objects.last()
+
+        context = {
+            "request": request,
+        }
+
+        usd_serializer = EURtoUSDSerializer(eurusd, context=context)
+        gbp_serializer = GBPtoUSDSerializer(gbpusd, context=context)
+
+        response = usd_serializer + gbp_serializer
+
+        return Response(response)
