@@ -19,5 +19,5 @@ router.register('USDtoAED', views.USDtoAEDViewSet, basename="USDtoAED")
 urlpatterns = [
     path('', views.home, name='home'),
     path('update/', include(router.urls)),
-    path('update/allCurrency', views.AllCurrencyViewSet, name="allCurrency")
+    path('update/allCurrency/', views.AllCurrencyViewSet.as_view(), name="allCurrency")
 ]
