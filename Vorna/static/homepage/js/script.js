@@ -1,17 +1,5 @@
 $(function() {
 	var dict = {
-<<<<<<< HEAD
-		"row1": "https://www.markettime.ir/update/EURtoUSD/latest/",
-		"row2": "https://www.markettime.ir/update/GBPtoUSD/latest/",
-		"row3": "https://www.markettime.ir/update/AUDtoUSD/latest/",
-		"row4": "https://www.markettime.ir/update/USDtoCAD/latest/",
-		"row5": "https://www.markettime.ir/update/USDtoJPY/latest/",
-		"row6": "https://www.markettime.ir/update/USDtoINR/latest/",
-		"row7": "https://www.markettime.ir/update/USDtoTRY/latest/",
-		"row8": "https://www.markettime.ir/update/USDtoCNY/latest/",
-		"row9": "https://www.markettime.ir/update/USDtoRUB/latest/",
-		"row10": "https://www.markettime.ir/update/USDtoAED/latest/"
-=======
 		"row1": "EURUSD",
 		"row2": "GBPUSD",
 		"row3": "AUDUSD",
@@ -22,7 +10,6 @@ $(function() {
 		"row8": "USDCNY",
 		"row9": "USDRUB",
 		"row10": "USDAED"
->>>>>>> 1305fa370dc34ac19282cb50a3176247a9956bb9
 	};
 
 
