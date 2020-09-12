@@ -1,7 +1,6 @@
 $(function() {
-
 		$.ajax({
-			url: ad,
+			url: "https://www.markettime.ir/update/CurrencyExchange/latest",
 			type: 'GET',
 			async: true,
 			dataType: 'json',
@@ -39,10 +38,10 @@ $(function() {
 				})
 			}
 		});
+
 	setInterval(function(){
-		var ad = "https://www.markettime.ir/update/CurrencyExchange/latest"
 		$.ajax({
-			url: ad,
+			url: "https://www.markettime.ir/update/CurrencyExchange/latest",
 			type: 'GET',
 			async: true,
 			dataType: 'json',
