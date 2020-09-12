@@ -14,7 +14,7 @@ router.register('USDtoTRY', views.USDtoTRYViewSet, basename="USDtoTRY")
 router.register('USDtoCNY', views.USDtoCNYViewSet, basename="USDtoCNY")
 router.register('USDtoRUB', views.USDtoRUBViewSet, basename="USDtoRUB")
 router.register('USDtoAED', views.USDtoAEDViewSet, basename="USDtoAED")
-router.register("all",views.AllCurrencyViewSet, basename="allcurrency")
+router.register("allCurrency", views.AllCurrencyViewSet, basename="allcurrency")
 
 
 urlpatterns = [
