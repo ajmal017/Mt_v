@@ -1,0 +1,18 @@
+div.element {
+    width:90%;
+    background-color:#C0C0C0;
+    height:90px;
+    color:#606060;
+    font-family:Arial;
+    font-size:12px;
+    padding:10px;
+    position:fixed;
+    /*float:left;*/
+}
+
+div.two {
+   width: 10%;
+    overflow:scroll;
+    right: 0;
+    /*margin-left:240px;*/
+}
