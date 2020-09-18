@@ -16,6 +16,8 @@ router = DefaultRouter()
 # router.register('USDtoAED', views.USDtoAEDViewSet, basename="USDtoAED")
 router.register("CurrencyExchange",
                 views.CurrencyExchangeViewSet, basename='CurrencyExchange')
+router.register("ForexExchange",
+                views.ForexExchangeViewSet, basename='ForexExchange')
 
 
 urlpatterns = [

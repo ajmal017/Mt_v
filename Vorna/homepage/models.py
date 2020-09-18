@@ -34,6 +34,13 @@ class CurrencyExchange(models.Model):
     USDAED = models.DecimalField(max_digits=20, decimal_places=10)
     timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
 
+
+class ForexExchange(models.Model):
+    """ Exchange rates from ForexFactory """
+
+    forex_rates = models.JSONField()
+    timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
+
 # class EURtoUSD(Currency_base):
 #     pass
 # class GBPtoUSD(Currency_base):

@@ -1,479 +1,703 @@
 {% extends "homepage/base.html" %}
 {% load static %}
+<html lang="en">
+
 {% block assets %}
-	<script src="{% static 'homepage/js/script.js' %}"></script>
-	<script src="{% static 'jquery-ui.min.js' %}"></script>
-	<link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
-	<link rel="stylesheet" href="{% static 'css/base-css.css'%}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'homepage/css/index.css' %}">
+
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
 {% endblock assets %}
 
-
 {% block content %}
-	<div class='header'>
-		{% if user.is_authenticated %}
-			<a class="nav-bar-link" href='{% url 'profile' %}'>حساب کاربری</a>
-			<a class="nav-bar-link" href='{% url 'logout' %}'>خروج</a>
-		{% else %}
-			<a class="nav-bar-link" href='{% url 'login' %}'>ورود</a>
-			<a class="nav-bar-link" href='{% url 'register' %}'>ثبت نام</a>
-		{% endif %}
-	</div>
-
-	<div id="header">
-
-	<div class="subhead">
-	<div class="text-price"><python db.py></div>
-	<div class="name1">Gold</div>
-	<div class="vahed">24</div>
-	<div class="percent">0.40%</div>
-
-
-	</div>
-
-	<div class="subhead">
-	<div class="text-price"><python db.py></div>
-	<div class="name1">Gold</div>
-	<div class="vahed">24</div>
-	<div class="percent">0.40%</div>
-
-
-	</div>
-
-
-	<div class="subhead">
-	<div class="text-price"><python db.py></div>
-	<div class="name1">Gold</div>
-	<div class="vahed">24</div>
-	<div class="percent">0.40%</div>
-
-
-	</div>
-
-
-	<div class="subhead">
-	<div class="text-price"><python db.py></div>
-	<div class="name1">Gold</div>
-	<div class="vahed">24</div>
-	<div class="percent">0.40%</div>
-
-
-	</div>
-
-	<div class="subhead">
-	<div class="text-price"><python db.py></div>
-	<div class="name1">Gold</div>
-	<div class="vahed">24</div>
-	<div class="percent">0.40%</div>
-
-
-	</div>
-
-	<div class="subhead">
-	<div class="text-price"><python db.py></div>
-	<div class="name1">Gold</div>
-	<div class="vahed">24</div>
-	<div class="percent">0.40%</div>
-
-
-	</div>
-
-
-
-
-	<div class="line1"></div>
-
-
-	</div>
-
-	<div id="line2">
-	<div class="subline2">شاخص بورس کشورها</div>
-	<div class="subline3">جفت ارزها</div>
-	<div class="subline4">ارز های دیجیتال</div>
-	 </div>
-
-	<div id="all">
-
-	<div id="shakheshjahani">
-	<table id="tableshakhes">
-	<th>نام بازار</th>
-	<th>شاخص</th>
-	<th>تغییرات</th>
-	<th>وضعیت</th>
-
-	<!-- bakhsh2 -->
-	<td>داوجونز</td>
-	<td>450 </td>
-	<td>1.03%</td>
-	<td>باز</td>
-
-
-	<td>داوجونز</td>
-	<td>450 </td>
-	<td>1.03%</td>
-	<td>باز</td>
-
-
-	<td>داوجونز</td>
-	<td>450 </td>
-	<td>1.03%</td>
-	<td>باز</td>
-
-
-	<td>داوجونز</td>
-	<td>450 </td>
-	<td>1.03%</td>
-	<td>باز</td>
-
-	<td>داوجونز</td>
-	<td>450 </td>
-	<td>1.03%</td>
-	<td>باز</td>
-
-	<td>داوجونز</td>
-	<td>450 </td>
-	<td>1.03%</td>
-	<td>باز</td>
-
-	<td>داوجونز</td>
-	<td>450 </td>
-	<td>1.03%</td>
-	<td>باز</td>
-
-
-	<td>داوجونز</td>
-	<td>450 </td>
-	<td>1.03%</td>
-	<td>باز</td>
-
-
-	</table>
-
-	<div class="lineamoodi" >
-	</div>
-	</div>
-
-
-	<div id="joftarz">
-	<div class="jametitr">
-			<div class="arz">ارز</div><div class="linline"></div>
-			<div class="gheymat">قیمت</div><div class="linline"></div>
-			<div class="taghirat">تغییرات</div>
-
-			</div>
-
-
-				<div class="field" name="name r1">یورو به دلار</div> <div class="linline"></div>
-				<div class="field" name="price" value="row1" id="EURUSD">0</div> <div class="linline"></div>
-				<div class="field" name="change r1">0</div>
-				<div class="field" name="name r2">پوند به دلار</div> <div class="linline"></div>
-				<div class="field" name="price" value="row2" id="GBPUSD">0</div> <div class="linline"></div>
-				<div class="field" name="change r2">0</div>
-
-				<div class="field" name="name r3">دلار استرالیا به دلار</div> <div class="linline"></div>
-				<div class="field" name="price" value="row3" id="AUDUSD">0</div> <div class="linline"></div>
-				<div class="field" name="change r3">0</div>
-				<div class="field" name="name r4">دلار به دلار کانادا</div> <div class="linline"></div>
-				<div class="field" name="price" value="row4" id="USDCAD">0</div> <div class="linline"></div>
-				<div class="field" name="change r4">0</div>
-
-				<div class="field" name="name r5">دلار به ین ژاپن</div> <div class="linline"></div>
-				<div class="field" name="price" value="row5" id="USDJPY">0</div> <div class="linline"></div>
-				<div class="field" name="change r5">0</div>
-				<div class="field" name="name r6">دلار به روپیه</div> <div class="linline"></div>
-				<div class="field" name="price" value="row6" id="USDINR">0</div> <div class="linline"></div>
-				<div class="field" name="change r6">0</div>
-
-				<div class="field" name="name r7">دلار به لیر ترکیه</div> <div class="linline"></div>
-				<div class="field" name="price" value="row7" id="USDTRY">0</div> <div class="linline"></div>
-				<div class="field" name="change r7">0</div>
-				<div class="field" name="name r8">دلار به یوان</div> <div class="linline"></div>
-				<div class="field" name="price" value="row8" id="USDCNY">0</div> <div class="linline"></div>
-				<div class="field" name="change r8">0</div>
-
-				<div class="field" name="name r9">دلار به روبل</div> <div class="linline"></div>
-				<div class="field" name="price" value="row9" id="USDRUB">0</div> <div class="linline"></div>
-				<div class="field" name="change r9">0</div>
-				<div class="field" name="name r10">دلار به درهم امارات</div> <div class="linline"></div>
-				<div class="field" name="price" value="row10" id="USDAED">0</div> <div class="linline"></div>
-				<div class="field" name="change r10">0</div>
-
-
-
-
-	</div>
-
-	<div id="arzdigital">
-	<div class="jametitr">
-			<div class="arz">ارز</div><div class="linline"></div>
-			<div class="gheymat">قیمت</div><div class="linline"></div>
-			<div class="taghirat">تغییرات</div>
-
-			</div>
-
-
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div>
-
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div>
-
-
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div>
-
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div> <div class="linline"></div>
-				<div class="field">بیت کوین</div>
-
-
-
-	</div>
-
-
-	<!--        line vasati     -->
-	<div id="linee">
-		<div class="subline2">قیمت نفت و انرژی</div>
-		<div class="subline3">قیمت فلزات پایه</div>
-		<div class="subline4">قیمت کالاها</div>
-
-	</div>
-
-		<div class="bourse">
-			<div class="boursetag">
-						<div class="titrha" style="background:#8e44ad">
-							<div class="titr1"></div><div class="linline"></div>
-							<div class="titr2"></div><div class="linline"></div>
-							<div class="titr3"></div>
-
-
-
-							<div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-
-						</div>
-
-			</div>
-			<div class="boursetag">
-						<div class="titrha" style="background:#28b463">
-							<div class="titr1">کالا</div><div class="linline"></div>
-							<div class="titr2">قیمت کالا</div><div class="linline"></div>
-							<div class="titr3">تغییرات</div>
-
-
-
-							<div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-
-						</div>
-
-			</div>
-			<div class="boursetag">
-						<div class="titrha" style="background:#c0392b">
-							<div class="titr1"></div><div class="linline"></div>
-							<div class="titr2"></div><div class="linline"></div>
-							<div class="titr3"></div>
-
-
-
-							<div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-								 <div class="field">بیت کوین</div> <div class="linline"></div>
-							   <div class="field">بیت کوین</div> <div class="linline"></div>
-								 <div class="field">بیت کوین</div>
-
-						</div>
-
-			</div>
-
-
-									<div id="khabar">
-											<div id="titrkhabar">آخرین اخبار</div>
-												{% for khabar in news %}
-													<div class="Ekhabar">
-													<a href={{khabar.link}}> {{khabar.text}}</a>
-													</div>
-												{% endfor%}
-
-									</div>
-
-													<div class="lahzeitala">
-														<div class="titrlahzei">
-															<div class="noe">قیمت طلا</div>
-															<div class="liveprice">قیمت زنده</div>
-															<div class="change">تغییر</div>
-															<div class="low">کمترین</div>
-															<div class="high">بیشترین</div>
-															<div class="time">زمان</div>
-
-														</div>
-															<div class="boxasli">
-																<div class="noe1">طلای 18 عیار</div>
-																	<div class="linline1"></div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2" style="color:#0C3;">(2.08%) 97,000</div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2">4,766,000</div>
-																<div class="noe2">12:35:40</div>
-																<div class="border"></div>
-
-
-																<div class="noe1">طلای 18 عیار</div>
-																	<div class="linline1"></div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2" style="color:#0C3;">(2.08%) 97,000</div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2">4,766,000</div>
-																<div class="noe2">12:35:40</div>
-																<div class="border"></div>
-
-
-																<div class="noe1">طلای 18 عیار</div>
-																	<div class="linline1"></div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2" style="color:#0C3;">(2.08%) 97,000</div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2">4,766,000</div>
-																<div class="noe2">12:35:40</div>
-																<div class="border"></div>
-
-
-																<div class="noe1">طلای 18 عیار</div>
-																	<div class="linline1"></div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2" style="color:#0C3;">(2.08%) 97,000</div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2">4,766,000</div>
-																<div class="noe2">12:35:40</div>
-																<div class="border"></div>
-
-
-
-
-
-
-
-
-
-															</div>
-													</div>
-														<div class="lahzeitala">
-														<div class="titrlahzei">
-															<div class="noe">قیمت طلا</div>
-															<div class="liveprice">قیمت زنده</div>
-															<div class="change">تغییر</div>
-															<div class="low">کمترین</div>
-															<div class="high">بیشترین</div>
-															<div class="time">زمان</div>
-
-														</div>
-															<div class="boxasli">
-																<div class="noe1">طلای 18 عیار</div>
-																	<div class="linline1"></div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2" style="color:#0C3;">(2.08%) 97,000</div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2">4,766,000</div>
-																<div class="noe2">12:35:40</div>
-																<div class="border"></div>
-
-
-																<div class="noe1">طلای 18 عیار</div>
-																	<div class="linline1"></div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2" style="color:#0C3;">(2.08%) 97,000</div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2">4,766,000</div>
-																<div class="noe2">12:35:40</div>
-																<div class="border"></div>
-
-
-																<div class="noe1">طلای 18 عیار</div>
-																	<div class="linline1"></div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2" style="color:#0C3;">(2.08%) 97,000</div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2">4,766,000</div>
-																<div class="noe2">12:35:40</div>
-																<div class="border"></div>
-
-
-																<div class="noe1">طلای 18 عیار</div>
-																	<div class="linline1"></div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2" style="color:#0C3;">(2.08%) 97,000</div>
-																<div class="noe2">4,765,000</div>
-																<div class="noe2">4,766,000</div>
-																<div class="noe2">12:35:40</div>
-																<div class="border"></div>
-
-
-
-
-
-
-
-
-
-															</div>
-													</div>
-
-
-
-		 </div>
-
-
-
-	</div>
-
+<div class=" body-content">
+<!--       main-part-located-besides-sidebar-->
+    <div class="body-scrollable " id="price-container">
+
+<!--        price-bar-->
+        <div class="container-fluid ">
+            <div class="row">
+                <!--        --------------------------------------------------------------------------------->
+                <div class="col-md-4 nopadding">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 nopadding">
+                                <div class=" price-box">
+                                    <span class="part1">برنت</span>
+                                    <span class="part2">1.987</span>
+                                    <span class="part3">+.03</span>
+                                    <span class="part4">1.161</span>
+                                </div>
+                            </div>
+                            <div class="col-6 nopadding">
+                                <div class=" price-box">
+                                    <span class="part1">برنت</span>
+                                    <span class="part2">1.987</span>
+                                    <span class="part3">+.03</span>
+                                    <span class="part4">1.161</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--        ---------------------------------------------------------------------------->
+                <div class="col-md-4 nopadding">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 nopadding">
+                                <div class=" price-box">
+                                    <span class="part1">فولاد</span>
+                                    <span class="part2">1.987</span>
+                                    <span class="part3">+.03</span>
+                                    <span class="part4">1.161</span>
+                                </div>
+                            </div>
+                            <div class="col-6 nopadding">
+                                <div class=" price-box">
+                                    <span class="part1">فولاد</span>
+                                    <span class="part2">1.987</span>
+                                    <span class="part3">+.03</span>
+                                    <span class="part4">1.161</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--        ----------------------------------------------------------------------------------->
+                <div class="col-md-4 nopadding">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-6 nopadding">
+                                <div class=" price-box">
+                                    <span class="part1">BCD</span>
+                                    <span class="part2">1.987</span>
+                                    <span class="part3">+.03</span>
+                                    <span class="part4">1.161</span>
+                                </div>
+                            </div>
+                            <div class="col-6 nopadding">
+                                <div class=" price-box">
+                                    <span class="part1">BCD</span>
+                                    <span class="part2">1.987</span>
+                                    <span class="part3">+.03</span>
+                                    <span class="part4">1.161</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!------------------------------------------------------------------------------------------------------------------>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--        navbar-->
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#NavbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="NavbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-time">
+                    <span id="time"></span>
+                    <span id="date" ></span>
+                </div>
+            </div>
+        </nav>
+
+<!--        tables-->
+        <div class="table-container ">
+            <div class="container-fluid ">
+
+                <div class="row">
+                    <div class="myCard col-12">
+                        <table class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">#</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row ">
+<!--                    felezat-table-->
+                    <div class="myCard  col-md-4">
+                        <table id="felez" class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">فلزات</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                            </tr>
+                            <tr>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>twitter</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+<!--                    energy-table-->
+                    <div class="myCard  col-md-4">
+
+                        <table id="enegy" class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">انرژی</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                            </tr>
+                            <tr>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>twitter</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+<!--                    kala-table-->
+                    <div class="myCard  col-md-4">
+                        <table id="kala" class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">کالا</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                            </tr>
+                            <tr>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>twitter</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                        <div id="tradingview_7bf78"></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                            new TradingView.widget(
+                                {
+                                    "autosize": true,
+                                    "symbol": "NASDAQ:AAPL",
+                                    "interval": "D",
+                                    "timezone": "Etc/UTC",
+                                    "theme": "light",
+                                    "style": "1",
+                                    "locale": "en",
+                                    "toolbar_bg": "#f1f3f6",
+                                    "enable_publishing": false,
+                                    "withdateranges": true,
+                                    "hide_side_toolbar": false,
+                                    "allow_symbol_change": true,
+                                    "watchlist": [
+                                        "BTC"
+                                    ],
+                                    "details": true,
+                                    "hotlist": true,
+                                    "calendar": true,
+                                    "show_popup_button": true,
+                                    "popup_width": "1000",
+                                    "popup_height": "650",
+                                    "container_id": "tradingview_7bf78"
+                                }
+                            );
+                        </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+                </div>
+
+                <div class="row">
+<!--                    shakhes-boors-keshvarha-table-->
+                    <div class="myCard col-md-6">
+                        <table id="shakhes-keshvarha" class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">شاخص بورس کشورها</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                                <td>mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+<!--                    joftarzha-table-->
+                    <div class="myCard col-md-6">
+                        <table class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">جفت ارزها</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!--   arzedigital-table-->
+                    <div class="myCard col-md-6">
+                        <table id="arzedigital" class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">ارزدیجیتال</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>fat</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--   joftarzha-table-->
+                    <div class="myCard col-md-6">
+                        <table class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">ارزها</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class=" myCard col-12">
+<!--                        seke-tala-table-->
+                        <table id="seke-tala" class="table table-hover myTable">
+                            <thead class="">
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">سکه طلا</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+<!--                news-->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1749e43c5e4%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1749e43c5e4%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8203125%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1749e43c5e4%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1749e43c5e4%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8203125%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1749e43c5e4%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1749e43c5e4%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8203125%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                            <div class="card-body">
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+<!--          sidebar-drawer1-->
+    <div class="wrapper ">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar-main">
+            <div class="sidebar-header">
+                <h3> Sidebar</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Dummy Heading</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- Page Content -->
+        <div id="content">
+
+        </div>
+    </div>
+    <!--          sidebar-drawer2-->
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar-clock">
+            <div class="sidebar-header">
+                <h3> Sidebar</h3>
+            </div>
+
+        </nav>
+    </div>
+<!--                  sidebar-btn-icon-->
+    <div class="sideBar-container">
+        <div class="sideBar " id="sidebarCollapse" >
+        <!--    <div class="menuIconBordered">-->
+        <!--        <div class="menuIconLine"></div>-->
+        <!--        <div class="menuIconLine"></div>-->
+        <!--        <div class="menuIconLine"></div>-->
+        <!--        <div class="menuIconLine"></div>-->
+        <!--    </div>-->
+
+        <div class="menuIcon" id="menu-icon">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0yMS41IDI0aC0xOWMtMS4zNzkgMC0yLjUtMS4xMjItMi41LTIuNXYtMTljMC0xLjM3OCAxLjEyMS0yLjUgMi41LTIuNWgxOWMxLjM3OSAwIDIuNSAxLjEyMiAyLjUgMi41djE5YzAgMS4zNzgtMS4xMjEgMi41LTIuNSAyLjV6bS0xOS0yM2MtLjgyNyAwLTEuNS42NzMtMS41IDEuNXYxOWMwIC44MjcuNjczIDEuNSAxLjUgMS41aDE5Yy44MjcgMCAxLjUtLjY3MyAxLjUtMS41di0xOWMwLS44MjctLjY3My0xLjUtMS41LTEuNXoiIGZpbGw9IiMwNzA3MDciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTYuNSA4aC05Yy0uMjc2IDAtLjUtLjIyNC0uNS0uNXMuMjI0LS41LjUtLjVoOWMuMjc2IDAgLjUuMjI0LjUuNXMtLjIyNC41LS41LjV6IiBmaWxsPSIjMDcwNzA3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PC9nPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTE2LjUgMTIuNWgtOWMtLjI3NiAwLS41LS4yMjQtLjUtLjVzLjIyNC0uNS41LS41aDljLjI3NiAwIC41LjIyNC41LjVzLS4yMjQuNS0uNS41eiIgZmlsbD0iIzA3MDcwNyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjwvZz48ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0xNi41IDE3aC05Yy0uMjc2IDAtLjUtLjIyNC0uNS0uNXMuMjI0LS41LjUtLjVoOWMuMjc2IDAgLjUuMjI0LjUuNXMtLjIyNC41LS41LjV6IiBmaWxsPSIjMDcwNzA3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PC9nPjwvZz48L3N2Zz4=" />
+        </div>
+        <div class="menuIcon" id="clock-icon">
+            <img src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIuMDA0IDUxMi4wMDQiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyLjAwNCA1MTIuMDA0IiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnPjxwYXRoIGQ9Im0yNTUuOTk3IDEyMC4zMzFjLTk1LjUxOSAwLTE3My4yMjkgNzcuNzEtMTczLjIyOSAxNzMuMjI5czc3LjcxIDE3My4yMjkgMTczLjIyOSAxNzMuMjI5IDE3My4yMjktNzcuNzEgMTczLjIyOS0xNzMuMjI5LTc3LjcxMS0xNzMuMjI5LTE3My4yMjktMTczLjIyOXptMTIxLjEwNCAxMDMuMzFjMi4wNzQgMy41OTIgNi42NjMgNC44MTQgMTAuMjQ1IDIuNzQ1bDkuMjU1LTUuMzQzYzEwLjE3MyAxOS42NDQgMTYuMzQ3IDQxLjY3NyAxNy40NDIgNjUuMDE3aC0xMC43MDhjLTQuMTQzIDAtNy41IDMuMzU4LTcuNSA3LjVzMy4zNTcgNy41IDcuNSA3LjVoMTAuNzA4Yy0xLjA5NSAyMy4zNDEtNy4yNjkgNDUuMzczLTE3LjQ0MiA2NS4wMThsLTkuMjU1LTUuMzQzYy0zLjU4Ny0yLjA3Mi04LjE3Ni0uODQzLTEwLjI0NSAyLjc0NS0yLjA3MSAzLjU4Ny0uODQyIDguMTc0IDIuNzQ1IDEwLjI0NWw5LjIzNSA1LjMzMmMtMTIuMjgxIDE5LjA1MS0yOC41MzcgMzUuMzA3LTQ3LjU4OCA0Ny41ODhsLTUuMzMyLTkuMjM2Yy0yLjA3LTMuNTg3LTYuNjYtNC44MTYtMTAuMjQ1LTIuNzQ1LTMuNTg3IDIuMDcxLTQuODE2IDYuNjU4LTIuNzQ1IDEwLjI0NWw1LjM0MyA5LjI1NWMtMTkuNjQ1IDEwLjE3My00MS42NzcgMTYuMzQ4LTY1LjAxOCAxNy40NDJ2LTEwLjcwOGMwLTQuMTQyLTMuMzU3LTcuNS03LjUtNy41cy03LjUgMy4zNTgtNy41IDcuNXYxMC43MDhjLTIzLjM0LTEuMDk1LTQ1LjM3My03LjI2OS02NS4wMTctMTcuNDQybDUuMzQzLTkuMjU1YzIuMDcxLTMuNTg3Ljg0Mi04LjE3NC0yLjc0NS0xMC4yNDUtMy41ODktMi4wNzItOC4xNzUtLjg0Mi0xMC4yNDUgMi43NDVsLTUuMzMzIDkuMjM2Yy0xOS4wNS0xMi4yODEtMzUuMzA3LTI4LjUzOC00Ny41ODgtNDcuNTg4bDkuMjM2LTUuMzMzYzMuNTg3LTIuMDcxIDQuODE2LTYuNjU4IDIuNzQ1LTEwLjI0NS0yLjA3Mi0zLjU4OC02LjY1OS00LjgxNi0xMC4yNDUtMi43NDVsLTkuMjU1IDUuMzQ0Yy0xMC4xNzItMTkuNjQ1LTE2LjM0Ny00MS42NzgtMTcuNDQyLTY1LjAxOGgxMC43MDhjNC4xNDMgMCA3LjUtMy4zNTggNy41LTcuNXMtMy4zNTctNy41LTcuNS03LjVoLTEwLjcwOGMxLjA5NS0yMy4zNDEgNy4yNy00NS4zNzQgMTcuNDQyLTY1LjAxOGw5LjI1NSA1LjM0NGMzLjU4MyAyLjA3IDguMTczLjg0NSAxMC4yNDUtMi43NDUgMi4wNzEtMy41ODcuODQyLTguMTc0LTIuNzQ1LTEwLjI0NWwtOS4yMzYtNS4zMzNjMTIuMjgxLTE5LjA1MSAyOC41MzgtMzUuMzA3IDQ3LjU4OC00Ny41ODhsNS4zMzMgOS4yMzdjMi4wNjkgMy41ODUgNi42NTUgNC44MTggMTAuMjQ1IDIuNzQ1IDMuNTg3LTIuMDcxIDQuODE2LTYuNjU4IDIuNzQ1LTEwLjI0NWwtNS4zNDMtOS4yNTZjMTkuNjQ0LTEwLjE3MyA0MS42NzctMTYuMzQ3IDY1LjAxNy0xNy40NDJ2MTAuNzA4YzAgNC4xNDIgMy4zNTcgNy41IDcuNSA3LjVzNy41LTMuMzU4IDcuNS03LjV2LTEwLjcwOGMyMy4zNDEgMS4wOTUgNDUuMzc0IDcuMjY5IDY1LjAxOCAxNy40NDJsLTUuMzQzIDkuMjU1Yy0yLjA3MSAzLjU4Ny0uODQyIDguMTc0IDIuNzQ1IDEwLjI0NSAzLjU5MiAyLjA3MyA4LjE3Ny44MzggMTAuMjQ1LTIuNzQ1bDUuMzMyLTkuMjM2YzE5LjA1MSAxMi4yODEgMzUuMzA3IDI4LjUzOCA0Ny41ODggNDcuNTg4bC05LjIzNiA1LjMzMmMtMy41ODYgMi4wNzItNC44MTUgNi42NTktMi43NDQgMTAuMjQ2eiIvPjxwYXRoIGQ9Im00OTkuOTYyIDEyNS42OTFjLS43NDEtMTMuMDg3LTYuNTAyLTI1LjA3NC0xNi4yMjItMzMuNzUybC05LjY4Ni04LjY0OCA2LjA4My02LjgxNGM2LjYwNy03LjM5OSA1Ljk2Ni0xOC43MzUtMS40MzUtMjUuMzQzbC02Ljg1OS02LjEyNGMtNy4zODQtNi41OTItMTguNzIzLTUuOTgtMjUuMzQzIDEuNDM1bC02LjA4MyA2LjgxNC05LjY4Ni04LjY0OGMtMjAuMTM1LTE3Ljk3Ny01MS4xNDMtMTYuMjIzLTY5LjEyIDMuOTE1bC04LjUxIDkuNTMyYy02Ljg3NSA3LjctNi4yMDQgMTkuNTU4IDEuNDk2IDI2LjQzM2wzMi4yMzggMjguNzgzLTEzLjAxOSAxNC41ODJjLTI4LjE0OS0yMC4wNTQtNjAuODY3LTMyLjU1MS05NS4yNzQtMzYuMzYzdi0yMS4zNjNoMTEuODFjMTAuNzcyIDAgMTkuNTM3LTguNzY0IDE5LjUzNy0xOS41Mzd2LTEyLjUzOWMwLTEwLjc3My04Ljc2NS0xOS41MzctMTkuNTM3LTE5LjUzN2gtMjYuODU2di0xMS4wMTdjMC00LjE0Mi0zLjM1Ny03LjUtNy41LTcuNXMtNy41IDMuMzU4LTcuNSA3LjV2MTEuMDE3aC0yNi44NTVjLTEwLjc3MiAwLTE5LjUzNyA4Ljc2NC0xOS41MzcgMTkuNTM3djEyLjUzOWMwIDEwLjc3MyA4Ljc2NSAxOS41MzcgMTkuNTM3IDE5LjUzN2gxMS44MXYyMS4zNjVjLTM1LjIxNSAzLjkwMy02Ny43NSAxNi44MjQtOTUuMjI1IDM2LjQxNGwtMTMuMDY3LTE0LjYzNiAzMi4yMzgtMjguNzgzYzcuNy02Ljg3NSA4LjM3MS0xOC43MzMgMS40OTYtMjYuNDMzbC04LjUxMS05LjUzMmMtMTcuOTU4LTIwLjExNi00OS4wMDUtMjEuODczLTY5LjExOS0zLjkxNWwtOS42ODYgOC42NDgtNi4wODMtNi44MTNjLTYuNjE3LTcuNDE0LTE3Ljk1Ni04LjAyOS0yNS4zNDMtMS40MzZsLTYuODU5IDYuMTI0Yy03LjM5OSA2LjYwNi04LjA0MyAxNy45NDMtMS40MzUgMjUuMzQybDYuMDgzIDYuODE0LTkuNjg2IDguNjQ4Yy05LjcyIDguNjc4LTE1LjQ4IDIwLjY2NS0xNi4yMjIgMzMuNzUyczMuNjMgMjUuNjQ4IDEyLjMwOCAzNS4zNjhsOC41MTEgOS41MzJjNi44NzcgNy43MDEgMTguNzMzIDguMzY5IDI2LjQzMyAxLjQ5N2wzMi4yMzgtMjguNzgyIDEzLjEgMTQuNjcyYy0zMi4yODEgMzYuMDA0LTUxLjk0NyA4My41MzctNTEuOTQ3IDEzNS41ODQgMCA1MS41MjIgMTkuMjc0IDk4LjYyMSA1MC45NzcgMTM0LjQ5LTEyLjgwNCA4LjI3Mi0yMC44NzkgMjIuNjEzLTIwLjg3OSAzOC4zMjggMCAyNS4xNTggMjAuNDY4IDQ1LjYyNSA0NS42MjUgNDUuNjI1IDIwLjkzMSAwIDM4LjUwNy0xMy44OTYgNDMuOTA0LTMzLjE1NyAyNS41MzggMTEuNTgxIDUzLjg3NyAxOC4wMzQgODMuNjk1IDE4LjAzNCAyOS4yIDAgNTcuNjU4LTYuMjIzIDgzLjcwNi0xNy45OTcgNS40MDkgMTkuMjQyIDIyLjk3NyAzMy4xMiA0My44OTQgMzMuMTIgMjUuMTU4IDAgNDUuNjI1LTIwLjQ2NyA0NS42MjUtNDUuNjI1IDAtMTUuNjg0LTguMDQ0LTI5Ljk5OC0yMC44MDMtMzguMjc3IDI4LjYzOS0zMi40MDMgNDYuMjQyLTczLjAxNiA1MC4wODMtMTE2LjM4LjM2NS00LjEyNi0yLjY4My03Ljc2Ny02LjgwOS04LjEzMi00LjEzOS0uMzcyLTcuNzY4IDIuNjgzLTguMTMzIDYuODA5LTkuODIzIDExMC44ODUtMTAxLjggMTUwLjY4My0xMDMuMDMxIDE1MS43NzctMjUuNDE4IDEyLjY0Mi01NC4xMjkgMTkuNzA2LTg0LjUzMiAxOS43MDYtMTAzLjg0MSAwLTE4OC4zMjEtODQuNDgtMTg4LjMyMS0xODguMzIxIDAtMTY0LjcyMyAyMDMuNTg5LTI1Ny43OTkgMzI2LjA5OC0xMjguOTQ3IDI3LjcwOSAyOS42MzggNDUuOTIyIDY4LjQ3NSA0OS43ODggMTEyLjEwOS4zNjYgNC4xMjYgNC4wMDggNy4xNzUgOC4xMzMgNi44MDkgNC4xMjYtLjM2NiA3LjE3NC00LjAwNiA2LjgwOS04LjEzMy0zLjg4Ni00My44NTktMjEuODQzLTg0LjkwOS01MS4wNjUtMTE3LjQ5MWwxMy4wMzYtMTQuNjAxIDMyLjIzOCAyOC43ODNjNy43MDYgNi44NzkgMTkuNTYyIDYuMTk3IDI2LjQzMy0xLjQ5NyA5LjE1My0xMC4yNTUgMjIuMTE2LTIxLjk1NCAyMC44MTYtNDQuOTAxem0tMTAyLjE1OCAzMTMuNTU3YzkuOTc1IDUuMjIzIDE2LjQxNyAxNS42MjkgMTYuNDE3IDI3LjEzMSAwIDE2Ljg4Ny0xMy43MzggMzAuNjI1LTMwLjYyNSAzMC42MjUtMTUuMDIxIDAtMjcuNDczLTEwLjY2LTMwLjEwNC0yNC45ODYgMTYuMjQtOC44OTIgMzAuODE0LTE5LjcxNSA0NC4zMTItMzIuNzd6bS0yODMuNjE0IDBjMTMuMjY4IDEyLjkyMSAyOC4xMzYgMjMuOTE3IDQ0LjMxMiAzMi43NzEtMi42MzEgMTQuMzI2LTE1LjA4MiAyNC45ODYtMzAuMTA0IDI0Ljk4Ni0xNi44ODcgMC0zMC42MjUtMTMuNzM5LTMwLjYyNS0zMC42MjUgMC0xMS41MDMgNi40NDItMjEuOTA5IDE2LjQxNy0yNy4xMzJ6bS03MC45MDktMzc2LjkyNCA2Ljg1OS02LjEyNGMxLjIxLTEuMDgyIDMuMDc1LS45ODMgNC4xNjMuMjM2bDYuMDg0IDYuODE0Yy03LjQwNCA2LjYxLTUuNTA1IDQuOTE1LTExLjI1OSAxMC4wNTJsLTYuMDgzLTYuODE0Yy0xLjA4My0xLjIxNS0uOTgxLTMuMDc5LjIzNi00LjE2NHptNi4wMTIgOTguNTc0Yy0xLjUwNCAxLjM0My0zLjkwOCAxLjIwOC01LjI1My0uMjk3bC04LjUxMS05LjUzMmMtNi4wMS02LjczMS05LjAzNi0xNS40NDItOC41MjEtMjQuNTI5czQuNTA1LTE3LjQwMSAxMS4yMzYtMjMuNDExYzQwLjU4MS0zNi4yMzMgMzAuMjA2LTI2Ljk2OSA1My4wMDgtNDcuMzI4IDEzLjkyMi0xMi40MjkgMzUuNDk1LTExLjIyNiA0Ny45MzkgMi43MTVsOC41MTEgOS41MzJjMS4zNDQgMS41MDQgMS4yMDcgMy45MS0uMjk3IDUuMjUzLTMuNTA1IDMuMTI5LTk0LjYzNSA4NC40OTItOTguMTEyIDg3LjU5N3ptNjUuNzA4LTEzLjgxNy0xMi4yOTEtMTMuNzY2IDExLjI1OS0xMC4wNTIgMTIuMjg3IDEzLjc2MmMtMy44NzYgMy4yMTUtNy42MzYgNi41NzUtMTEuMjU1IDEwLjA1NnptMTA2LjY0LTkxLjk1MWMtMi40NTkgMC00LjUzNy0yLjA3OC00LjUzNy00LjUzN3YtMTIuNTM5YzAtMi40NTkgMi4wNzgtNC41MzcgNC41MzctNC41MzdoNjguNzEyYzIuNDU5IDAgNC41MzcgMi4wNzggNC41MzcgNC41Mzd2MTIuNTM5YzAgMi40NTktMi4wNzggNC41MzctNC41MzcgNC41MzctNy4xNTIgMC02MC43OCAwLTY4LjcxMiAwem00MS45MDIgMzUuMjQ2Yy00LjU5NS0uMTY3LTkuNzE5LS4xOTctMTUuMDkzIDB2LTIwLjI0NmgxNS4wOTN6bTE5NC4xNDgtMzMuOTQxYzEuMTAzLTEuMjM0IDIuOTctMS4zMDEgNC4xNjMtLjIzNWw2Ljg1OSA2LjEyNGMxLjIxNCAxLjA4MyAxLjMyMSAyLjk0Ny4yMzUgNC4xNjRsLTYuMDgzIDYuODEzYy03LjQwMS02LjYwOC01LjUwNy00LjkxNy0xMS4yNTktMTAuMDUyem0tNjAuNjk3IDkwLjY0NmMtMy43MTItMy41NzYtNy44MjQtNy4yMDgtMTEuMjU1LTEwLjA1NmwxMi4yODctMTMuNzYyYy44MTYuNzI4IDkuNDk4IDguNDggMTEuMjU4IDEwLjA1MnptNzAuOTYxIDEzLjUyYy0xLjM0NCAxLjUwNS0zLjc0OCAxLjY0LTUuMjUzLjI5Ny03LjgzMy02Ljk5NC0zMy42MjUtMzAuMDIxLTk4LjExMy04Ny41OTctMS41MDQtMS4zNDMtMS42NDEtMy43NDktLjI5Ny01LjI1M2w4LjUxLTkuNTMyYzEyLjQ3Mi0xMy45NjggMzMuOTc3LTE1LjE4MiA0Ny45NC0yLjcxNSAxNy44NzIgMTUuOTU3IDM1LjMyMSAzMS41MzYgNTMuMDA5IDQ3LjMyOCA2LjczMSA2LjAwOSAxMC43MjIgMTQuMzI0IDExLjIzNiAyMy40MTEuOTEzIDE2LjEyNy03Ljk3MyAyMy45MTQtMTcuMDMyIDM0LjA2MXoiLz48cGF0aCBkPSJtMjYzLjQ5NyAyNTYuMDgzdi04NS42MjFjMC00LjE0Mi0zLjM1Ny03LjUtNy41LTcuNXMtNy41IDMuMzU4LTcuNSA3LjV2ODUuNjIxYy05LjUyOSAxLjkwNC0xNy43ODcgNy4zNjMtMjMuMzM0IDE0LjkzaC01OC41NjNjLTEyLjQzMyAwLTIyLjU0NyAxMC4xMTQtMjIuNTQ3IDIyLjU0NnMxMC4xMTQgMjIuNTQ2IDIyLjU0NyAyMi41NDZoNTguNTgzYzIuNDczIDMuMzc3IDUuNSA2LjM4IDkuMDMgOC44MzYgMy4zOTkgMi4zNjUgOC4wNzMgMS41MjcgMTAuNDQtMS44NzIgMi4zNjYtMy40IDEuNTI3LTguMDc0LTEuODcyLTEwLjQ0LTE4LjU5MS0xMi45MzUtOS42MTYtNDIuMjkgMTMuMjE2LTQyLjI5IDIyLjY1NSAwIDMxLjg1NSAyOS4zMjIgMTMuMjE2IDQyLjI5LTMuMzk5IDIuMzY2LTQuMjM4IDcuMDQtMS44NzIgMTAuNDQgMi4zNjcgMy40IDcuMDQgNC4yMzggMTAuNDQgMS44NzMgMjcuNjYyLTE5LjI0OSAxOC41ODctNjIuMjkxLTE0LjI4NC02OC44NTl6bS05Ni44OTggNDUuMDIzYy00LjE2MSAwLTcuNTQ3LTMuMzg1LTcuNTQ3LTcuNTQ2czMuMzg2LTcuNTQ2IDcuNTQ3LTcuNTQ2aDUxLjkzYy0xLjAyMyA1LjA5LS45NzQgMTAuMjE1LjAwNSAxNS4wOTNoLTUxLjkzNXoiLz48L2c+PC9zdmc+" />
+        </div>
+        <div class="menuIcon" id="darkmode-icon">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxnPjxwYXRoIGQ9Ik0yMzIsNDY0SDE4NGE4LDgsMCwwLDAsMCwxNmg0OGE4LDgsMCwwLDAsMC0xNloiLz48cGF0aCBkPSJNNDIwLDEwNEgzNTJWMzZBMjguMDMxLDI4LjAzMSwwLDAsMCwzMjQsOEg5MkEyOC4wMzEsMjguMDMxLDAsMCwwLDY0LDM2VjQ3NmEyOC4wMzEsMjguMDMxLDAsMCwwLDI4LDI4SDMyNGEyOC4wMzEsMjguMDMxLDAsMCwwLDI4LTI4VjM0NGg2OGEyOC4wMzEsMjguMDMxLDAsMCwwLDI4LTI4VjEzMkEyOC4wMzEsMjguMDMxLDAsMCwwLDQyMCwxMDRaTTI0NS43NSwyNGwtNCwxNmgtNjcuNWwtNC0xNlpNMzM2LDQ3NmExMi4wMSwxMi4wMSwwLDAsMS0xMiwxMkg5MmExMi4wMSwxMi4wMSwwLDAsMS0xMi0xMlYzNkExMi4wMSwxMi4wMSwwLDAsMSw5MiwyNGg2MS43NWw2LjQ5LDI1Ljk0QTgsOCwwLDAsMCwxNjgsNTZoODBhOCw4LDAsMCwwLDcuNzYtNi4wNkwyNjIuMjUsMjRIMzI0YTEyLjAxLDEyLjAxLDAsMCwxLDEyLDEydjY4SDIzNmEyOC4wMzEsMjguMDMxLDAsMCwwLTI4LDI4VjMxNmEyOC4wMzEsMjguMDMxLDAsMCwwLDI4LDI4aDR2MjRhOCw4LDAsMCwwLDEzLjY2LDUuNjZMMjgzLjMxLDM0NEgzMzZabTk2LTE2MGExMi4wMSwxMi4wMSwwLDAsMS0xMiwxMkgyODBhOC4wMDgsOC4wMDgsMCwwLDAtNS42NiwyLjM0TDI1NiwzNDguNjlWMzM2YTgsOCwwLDAsMC04LThIMjM2YTEyLjAxLDEyLjAxLDAsMCwxLTEyLTEyVjEzMmExMi4wMSwxMi4wMSwwLDAsMSwxMi0xMkg0MjBhMTIuMDEsMTIuMDEsMCwwLDEsMTIsMTJaIi8+PHBhdGggZD0iTTM5Mi4wMzYsMjYxYTY4LjAwOCw2OC4wMDgsMCwwLDEtNzAuNC0xMTAuNjgyLDgsOCwwLDAsMC03LjE0NC0xMy4yODNBODguMDA2LDg4LjAwNiwwLDEsMCw0MDEuMDM1LDI3My4xMWE4LDgsMCwwLDAtOS0xMi4xMTJaTTMyOCwyOTZhNzIuMDEsNzIuMDEsMCwwLDEtMzEuNTU4LTEzNi43MjdBODQuMDIxLDg0LjAyMSwwLDAsMCwzNzIsMjgwcS42NDEsMCwxLjI3OC0uMDA5QTcxLjkyNiw3MS45MjYsMCwwLDEsMzI4LDI5NloiLz48cGF0aCBkPSJNMTUyLDI5NmE4LDgsMCwwLDAtOC04SDEyOC42NDVsMjEuNi0yN0E4LDgsMCwwLDAsMTQ0LDI0OEgxMTJhOCw4LDAsMCwwLDAsMTZoMTUuMzU1bC0yMS42LDI3QTgsOCwwLDAsMCwxMTIsMzA0aDMyQTgsOCwwLDAsMCwxNTIsMjk2WiIvPjxwYXRoIGQ9Ik0xOTIsMzY4YTgsOCwwLDAsMC04LThIMTY4LjY0NWwyMS42LTI3QTgsOCwwLDAsMCwxODQsMzIwSDE1MmE4LDgsMCwwLDAsMCwxNmgxNS4zNTVsLTIxLjYsMjdBOCw4LDAsMCwwLDE1MiwzNzZoMzJBOCw4LDAsMCwwLDE5MiwzNjhaIi8+PHBhdGggZD0iTTE2MCwxOTJoMTUuMzU1bC0yMS42LDI3QTgsOCwwLDAsMCwxNjAsMjMyaDMyYTgsOCwwLDAsMCwwLTE2SDE3Ni42NDVsMjEuNi0yN0E4LDgsMCwwLDAsMTkyLDE3NkgxNjBhOCw4LDAsMCwwLDAsMTZaIi8+PC9nPjwvc3ZnPgo=" />
+        </div>
+        <div class="menuIcon" id="calender-icon">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTEwIDg2aDQ5MnY4MGgtNDkyeiIgZmlsbD0iI2E5OWE5YSIgZGF0YS1vcmlnaW5hbD0iI2ZmNTk1OSIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjxnIGZpbGw9IiNmZmYiPjxwYXRoIGQ9Im0xMCAxNjZoNDkydjMwMGgtNDkyeiIgdHJhbnNmb3JtPSJtYXRyaXgoLTEgMCAwIC0xIDUxMiA2MzIpIiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjZmZmZmZmIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTEzNiAxMjZoLTUwdi01NWMwLTEzLjgwNyAxMS4xOTMtMjUgMjUtMjUgMTMuODA3IDAgMjUgMTEuMTkzIDI1IDI1eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iI2ZmZmZmZiIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIGQ9Im00MjYgMTI2aC01MHYtNTVjMC0xMy44MDcgMTEuMTkzLTI1IDI1LTI1IDEzLjgwNyAwIDI1IDExLjE5MyAyNSAyNXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiNmZmZmZmYiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PGc+PHBhdGggZD0ibTMzNiAxMTZoLTE2MGMtNS41MjIgMC0xMCA0LjQ3Ny0xMCAxMHM0LjQ3OCAxMCAxMCAxMGgxNjBjNS41MjIgMCAxMC00LjQ3NyAxMC0xMHMtNC40NzgtMTAtMTAtMTB6IiBmaWxsPSIjMDAwMDAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTUwMiA3NmgtNjZ2LTVjMC0xOS4yOTktMTUuNzAxLTM1LTM1LTM1cy0zNSAxNS43MDEtMzUgMzV2NWgtMjIwdi01YzAtMTkuMjk5LTE1LjcwMS0zNS0zNS0zNXMtMzUgMTUuNzAxLTM1IDM1djVoLTY2Yy01LjUyMiAwLTEwIDQuNDc3LTEwIDEwdjM4MGMwIDIuNjMgMS4wNjkgNS4yMSAyLjkzIDcuMDdzNC40NCAyLjkzIDcuMDcgMi45M2g0OTJjMi42MyAwIDUuMjEtMS4wNyA3LjA2OS0yLjkzIDEuODYtMS44NiAyLjkzMS00LjQ0IDIuOTMxLTcuMDd2LTEwNWMwLTUuNTEtNC40OS0xMC0xMC0xMHMtMTAgNC40OS0xMCAxMHY5NWgtNDcydi0yODBoNDcydjk1YzAgNS41MSA0LjQ5IDEwIDEwIDEwIDUuNTIgMCAxMC00LjQ5IDEwLTEwdi0xODVjMC01LjUyMy00LjQ3OC0xMC0xMC0xMHptLTExNi01YzAtOC4yNzEgNi43MjktMTUgMTUtMTVzMTUgNi43MjkgMTUgMTV2NDVoLTMwem0tMjkwIDBjMC04LjI3MSA2LjcyOS0xNSAxNS0xNXMxNSA2LjcyOSAxNSAxNXY0NWgtMzB6bTM5NiA4NWgtNDcydi02MGg1NnYzMGMwIDUuNTIzIDQuNDc4IDEwIDEwIDEwaDUwYzUuNTIyIDAgMTAtNC40NzcgMTAtMTB2LTMwaDIyMHYzMGMwIDUuNTIzIDQuNDc4IDEwIDEwIDEwaDUwYzUuNTIyIDAgMTAtNC40NzcgMTAtMTB2LTMwaDU2eiIgZmlsbD0iIzAwMDAwMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjxjaXJjbGUgY3g9IjUwMiIgY3k9IjMxNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxwYXRoIGQ9Im0yMTIgMjA2djIyMGMwIDUuNTIzIDQuNDc4IDEwIDEwIDEwczEwLTQuNDc3IDEwLTEwdi0yMjBjMC01LjUyMy00LjQ3OC0xMC0xMC0xMHMtMTAgNC40NzctMTAgMTB6IiBmaWxsPSIjMDAwMDAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTE0Mi42NyA0MDFoLjA4NmM1LjQ4MyAwIDkuOTUxLTQuMjg2IDkuOTk4LTkuNzguMDMzLTQuMDExLjE0NC0xNy4yMi4yNjEtMzQuMjJoOC43NWM1LjUyMiAwIDEwLTQuNDc3IDEwLTEwcy00LjQ3OC0xMC0xMC0xMGgtOC42MmMuMjI2LTM4IC4zODMtODAuODUtLjA1OS04Ni4yNzctLjc0OS05LjIyMy02LjAyMi0xNi43MDYtMTMuNDM3LTE4Ljk1OS0zLjQ1My0xLjA1MS0xMi40MTItMi4zNzgtMjAuODc4IDguMjgzLTguMzMxIDEwLjQ5NC01Mi41NjMgOTIuNjMtNTcuNTggMTAxLjk2NC0xLjY2NSAzLjA5OS0xLjU4IDYuOTczLjIyNiA5Ljk5M3M1LjA2NCA0Ljk5NiA4LjU4MyA0Ljk5Nmg2My4wMTZjLS4wODMgMTItLjE3MyAyMy41MDktLjI2MiAzNC4wNTItLjA0NiA1LjUyMiA0LjM5MyA5Ljk0OCA5LjkxNiA5Ljk0OHptLTU1LjkwNy02NGMxNy4zMDMtMzIgMzkuNzIxLTcyLjQ4OCA0Ni40NzItODIuNTkxLjI0NyA5LjMwMS4xMzUgNDQuNTkxLS4wOSA4Mi41OTF6IiBmaWxsPSIjMDAwMDAwIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTM4NS4yNiAzNzguOTNjLTEuODU5IDEuODYtMi45MyA0LjQ0LTIuOTMgNy4wN3MxLjA3IDUuMjEgMi45MyA3LjA3IDQuNDQgMi45MyA3LjA3IDIuOTMgNS4yMS0xLjA3IDcuMDctMi45M2MxLjg1OS0xLjg2IDIuOTMtNC40NCAyLjkzLTcuMDdzLTEuMDctNS4yMS0yLjkzLTcuMDctNC40NC0yLjkzLTcuMDctMi45My01LjIxIDEuMDctNy4wNyAyLjkzeiIgZmlsbD0iIzAwMDAwMCIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjxjaXJjbGUgY3g9IjM5Mi4zMyIgY3k9IjMzNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjM5Mi4zMyIgY3k9IjI4NiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjM5Mi4zMyIgY3k9IjIzNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMzNS42NyIgY3k9IjM4NiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMzNS42NyIgY3k9IjMzNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMzNS42NyIgY3k9IjI4NiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMzNS42NyIgY3k9IjIzNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjQ0OSIgY3k9IjMzNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjQ0OSIgY3k9IjI4NiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjQ0OSIgY3k9IjIzNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjI3OSIgY3k9IjM4NiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjI3OSIgY3k9IjMzNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjI3OSIgY3k9IjI4NiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjI3OSIgY3k9IjIzNiIgcj0iMTAiIGZpbGw9IiMwMDAwMDAiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjwvZz48L2c+PC9nPjwvc3ZnPg==" />
+        </div>
+
+    </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="assets/js/index.js"></script>
+<!--//bootstrap.bundle.min.js is exactly Bootstrap.js + Popper.js.-->
+<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
 {% endblock content %}

@@ -11,7 +11,13 @@ class CurrencyExchangeSerializer(serializers.ModelSerializer):
                   'USDINR', 'USDTRY', 'USDCNY', 'USDRUB', 'USDAED', 'timestamp')
         read_only_fields = ('id', )
 
+class ForexExchangeSerializer(serializers.ModelSerializer):
+    """Serializer class for ForexExchange model"""
 
+    class Meta:
+        model = ForexExchange
+        fields = ('id', 'forex_rates', 'timestamp')
+        read_only_fields = ('id',)
 
 # class CurrencySerializer(serializers.ModelSerializer):
 #     """Serializer for Currency object"""

@@ -58,6 +58,19 @@ class CurrencyExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSe
         return Response(serializer.data)
 
 
+class ForexExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
+    # authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    queryset = ForexExchange.objects.all()
+    serializer_class = serializers.ForexExchangeSerializer
+
+    @action(methods=['GET'], permission_classes=[IsAuthenticatedOrReadOnly], url_path='latest', detail=False)
+    def get_latest(self, request, pk=None):
+        latest = ForexExchange.objects.last()
+        serializer = self.serializer_class(latest)
+        return Response(serializer.data)
+
+
 # class CurrencyViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
 #     """Manage Currency add or get"""
 #

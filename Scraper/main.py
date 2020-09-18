@@ -17,6 +17,8 @@ class Crawler:
     currency_list = [
      'EUR/USD', 'GBP/USD', 'AUD/USD', 'USD/CAD', 'USD/JPY',
      'WTI/USD', 'Brent/USD', 'NatGas/USD', 'Gasoline/USD',
+     'Gold/USD', 'Silver/USD', 'Copper/USD', 'Palladium/USD',
+     'Platinum/USD',
     ]
     rows = 1
     cookie_name = "forexfactory.pk1"
@@ -116,6 +118,7 @@ class Crawler:
         while 1:
             # Row
             start = timer()
+            globals.clear()
             for i in range (1, 3):
                 # Column
                 for j in range(1,9):
@@ -131,10 +134,9 @@ class Crawler:
                     name = self.driver.find_element_by_css_selector(a_tag)
                     name_text = name.text
                     params[name_text.replace("/", "")] = price_text
-                    print(name_text + ":" + price_text + '\n')
+                    print(name_text + ":" + price_text)
             end = timer()
             print(f"Iteration ended on {end-start}")
-            print(params)
             time.sleep(1)
 
 
