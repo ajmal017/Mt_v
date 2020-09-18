@@ -142,7 +142,7 @@ class Crawler:
             rates = {'forex_rates' : params}
             print(rates)
             print(params)
-            r = requests.post(self.api_url, data=rates,
+            r = requests.post(self.api_url, json=rates,
                               headers=globals.header, verify=False)
             print(r.text)
             print(f"Iteration ended on {end-start}")
