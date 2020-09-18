@@ -139,10 +139,7 @@ class Crawler:
                     params[name_text.replace("/", "")] = price_text
                     print(name_text + ":" + price_text)
             end = timer()
-
             rates = {'forex_rates' : params}
-            print(rates)
-            print(params)
             r = requests.post(self.api_url, json=rates,
                               headers=globals.header, verify=False)
             print(r.text)
