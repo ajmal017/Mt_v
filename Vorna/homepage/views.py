@@ -69,7 +69,8 @@ class ForexExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
         serializer = serializers.ForexExchangeSerializer(data=request.data)
         if serializer.is_valid():
             new = ForexExchange.objects.create(
-                            data={'forex_rates': request.data['forex_rates']})
+                                name='latest',
+                                data={'forex_rates': request.data['forex_rates']})
             new.save()
             return Response(new, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
