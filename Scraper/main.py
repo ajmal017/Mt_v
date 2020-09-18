@@ -3,6 +3,8 @@ import traceback
 import time
 import globals
 import pickle
+import requests
+import json
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -24,7 +26,7 @@ class Crawler:
     cookie_name = "forexfactory.pk1"
 
 
-    def __init__(self, url, api_url=None):
+    def __init__(self, url, api_url):
         self.url = url
         self.api_url = api_url
 
@@ -136,12 +138,20 @@ class Crawler:
                     params[name_text.replace("/", "")] = price_text
                     print(name_text + ":" + price_text)
             end = timer()
+
+            rates = {'forex_rates' : params}
+            print(rates)
+            print(params)
+            r = requests.post(self.api_url, data=rates,
+                              headers=globals.header, verify=False)
+            print(r.text)
             print(f"Iteration ended on {end-start}")
             time.sleep(1)
 
 
 
-worker = Crawler("https://www.forexfactory.com/market")
+worker = Crawler("https://www.forexfactory.com/market",
+                 "https://www.markettime.ir/update/ForexExchange/")
 while True:
     try:
         worker.start()

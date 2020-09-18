@@ -64,6 +64,15 @@ class ForexExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
     queryset = ForexExchange.objects.all()
     serializer_class = serializers.ForexExchangeSerializer
 
+    @action(methods=['POST'])
+    def insert(self, request, pk=None):
+        serilizer = serializers.ForexExchangeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Respone(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
     @action(methods=['GET'], permission_classes=[IsAuthenticatedOrReadOnly], url_path='latest', detail=False)
     def get_latest(self, request, pk=None):
         latest = ForexExchange.objects.last()
