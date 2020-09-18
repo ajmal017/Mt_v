@@ -146,7 +146,7 @@ class Crawler:
                               headers=globals.header, verify=False)
             print(r.text)
             print(f"Iteration ended on {end-start}")
-            time.sleep(5)
+            time.sleep(1)
 
 
 
