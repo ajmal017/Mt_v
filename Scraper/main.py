@@ -116,7 +116,8 @@ class Crawler:
         # Prompt for manual change
         self.manual()
         params = {}
-        self.driver.implicitly_wait(2)
+        # Wait for everything to load correctly
+        self.driver.implicitly_wait(5)
         while 1:
             # Row
             start = timer()
@@ -136,6 +137,7 @@ class Crawler:
                     name = self.driver.find_element_by_css_selector(a_tag)
                     name_text = name.text
                     params[name_text.replace("/", "")] = price_text
+                    print(name_text + ":" + price_text)
             end = timer()
 
             rates = {'forex_rates' : params}
