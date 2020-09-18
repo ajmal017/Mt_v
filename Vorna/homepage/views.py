@@ -64,7 +64,7 @@ class ForexExchangeViewSet(generics.ListCreateAPIView, viewsets.GenericViewSet):
     queryset = ForexExchange.objects.all()
     serializer_class = serializers.ForexExchangeSerializer
 
-    @action(methods=['POST'])
+    @action(methods=['POST'], detail=False)
     def insert(self, request, pk=None):
         serilizer = serializers.ForexExchangeSerializer(data=request.data)
         if serializer.is_valid():
