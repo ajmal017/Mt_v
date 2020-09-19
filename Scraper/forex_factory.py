@@ -24,11 +24,8 @@ class Crawler:
     ]
     rows = 1
     cookie_name = "forexfactory.pk1"
-
-
-    def __init__(self, url, api_url):
-        self.url = url
-        self.api_url = api_url
+    url = "https://www.forexfactory.com/market"
+    api_url = "https://www.markettime.ir/update/ForexExchange/"
 
 
     def add_row(self):
@@ -83,6 +80,8 @@ class Crawler:
         """ Instruments of ForexFactory are harder to automate (TODO)
             So lets ask the admin if he wants to manually set it
             What ever he/she wants
+            Once you do it manually it will be saved inside a cookie
+            so you can skip manual changes next time
         """
         # Load cookies first
         self.load_cookies()
@@ -128,28 +127,29 @@ class Crawler:
                     # We don't want to scrape more than what is inside >
                     # > Our currency list. So we check if everytime.
                     row_neg = i - 1
-                    if ((row_neg*8)+j) > len(self.currency_list):
+                    cur_element = (row_neg*8)+j
+                    if (cur_element) > len(self.currency_list):
                         break
                     selector =  f"#content > section.content.market_v3 > div.pagearrange__layout.pagearrange__layout--arrangeable.pagearrange__layout--zippable.full > div:nth-child({i}) > div > div > div > div > div.market__scanner > div.slidetable > div > div.slidetable__overflow > table > tr > td.market__scanner-blocks.market__scanner-blocks--8 > table > tr:nth-child(2) > td:nth-child({j})"
-                    a_tag = f"#content > section.content.market_v3 > div.pagearrange__layout.pagearrange__layout--arrangeable.pagearrange__layout--zippable.full > div:nth-child({i}) > div > div > div > div > div.market__scanner > div.slidetable > div > div.slidetable__overflow > table > tr > td.market__scanner-blocks.market__scanner-blocks--8 > table > tr:nth-child(1) > td:nth-child({j}) > div > a"
+                    # a_tag = f"#content > section.content.market_v3 > div.pagearrange__layout.pagearrange__layout--arrangeable.pagearrange__layout--zippable.full > div:nth-child({i}) > div > div > div > div > div.market__scanner > div.slidetable > div > div.slidetable__overflow > table > tr > td.market__scanner-blocks.market__scanner-blocks--8 > table > tr:nth-child(1) > td:nth-child({j}) > div > a"
                     price = self.driver.find_element_by_css_selector(selector)
                     price_text = price.text
-                    name = self.driver.find_element_by_css_selector(a_tag)
-                    name_text = name.text
-                    params[name_text.replace("/", "")] = price_text
+                    # name = self.driver.find_element_by_css_selector(a_tag)
+                    name_text = self.currency_list[cur_element-1]
+                    params[price_text] = price_text
                     print(name_text + ":" + price_text)
             end = timer()
             rates = {'forex_rates' : params}
             r = requests.post(self.api_url, json=rates,
                               headers=globals.header, verify=False)
+
             print(r.text)
             print(f"Iteration ended on {end-start}")
             time.sleep(1)
 
 
 
-worker = Crawler("https://www.forexfactory.com/market",
-                 "https://www.markettime.ir/update/ForexExchange/")
+worker = Crawler()
 while True:
     try:
         worker.start()
