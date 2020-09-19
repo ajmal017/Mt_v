@@ -13,6 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from inputimeout import inputimeout, TimeoutOccurred
 from timeit import default_timer as timer
 
+
 class Crawler:
 
     driver = webdriver.Chrome("chromedriver.exe", options=globals.options)

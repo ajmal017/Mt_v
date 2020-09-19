@@ -14,18 +14,18 @@ from inputimeout import inputimeout, TimeoutOccurred
 from timeit import default_timer as timer
 
 
-class Crawler:
+class Crawler(object):
 
     driver = webdriver.Chrome("chromedriver.exe", options=globals.options)
     indexes = [20, 22, 23, 26, 30, 13, 14]
     index_to_name = {
         13: "gas_oil",
-        14: "Aluminum",
-        20: "uswheat",
-        22: "uscorn",
-        23: "ussoybeans",
-        26: "uscotton",
-        30: "ussugar",
+        14: "aluminum",
+        20: "us_wheat",
+        22: "us_corn",
+        23: "us_soybeans",
+        26: "us_cotton",
+        30: "us_sugar",
 
     }
 
@@ -89,6 +89,7 @@ class Crawler:
             end = timer()
             print(f"Iteration ended on {end-start}")
             time.sleep(5)
+
 
 crawler = Crawler()
 while True:
