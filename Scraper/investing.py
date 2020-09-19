@@ -63,8 +63,6 @@ class Crawler:
         print("opening site...")
 
         params = {}
-        # Wait for everything to load correctly
-        self.driver.implicitly_wait(1)
         # selector_list = ["td.pid-8830-last", "td.pid-8830-high",
         #                  "td.pid-8830-low", "td.bold",
         #                  "td.bold"]
@@ -77,6 +75,8 @@ class Crawler:
             self.cookie_loaded = True
         self.driver.execute_script('videos = document.querySelectorAll("video"); for(video of videos) {video.pause()}')
 
+        # Wait for everything to load correctly
+        self.driver.implicitly_wait(5)
         while 1:
             start = timer()
             globals.clear()
@@ -90,4 +90,11 @@ class Crawler:
             print(f"Iteration ended on {end-start}")
             time.sleep(5)
 
-Crawler().start()
+crawler = Crawler()
+while True:
+    try:
+        crawler.start()
+    except KeyboardInterrupt:
+        raise
+    except:
+        pass
