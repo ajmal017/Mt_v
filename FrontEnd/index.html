@@ -6,6 +6,8 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
+
 
 
     <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
@@ -98,7 +100,7 @@
         </div>
 
 <!--        navbar-->
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#NavbarNav">
@@ -538,55 +540,78 @@
                     </div>
                 </div>
 <!--                news-->
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1749e43c5e4%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1749e43c5e4%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8203125%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1749e43c5e4%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1749e43c5e4%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8203125%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1749e43c5e4%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1749e43c5e4%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8203125%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    </div>
-                                    <small class="text-muted">9 mins</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
+            <div class="">
+                <h3 class="news-title">اخبار</h3>
+            </div>
+            <div class="carousel-wrapper ">
+                <div class="carousel" data-flickity>
+                    <div class="carousel-cell">
+                        <div class="header">
+                            <h3>
+                                Lorem ipsum dolor  dicta dolor dolore enim exercitationem facere facilis illum,
+                            </h3>
+                        </div>
+                        <a class="more" href="">بیشتر بخوانید</a>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet deserunt, eveniet illum ipsa ipsum itaque iure, magni nemo nesciunt obcaecati omnis perferendis quaerat quidem rem, sapiente sit tenetur vitae.</p>
+                        <span class="time">
+                            12 دقیقه پیش
+                        </span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="header">
+                            <h3>
+                                Lorem ipsum dolor  dicta dolor dolore enim exercitationem facere facilis illum,
+                            </h3>
+                        </div>
+                        <a class="more" href="">بیشتر بخوانید</a>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet deserunt, eveniet illum ipsa ipsum itaque iure, magni nemo nesciunt obcaecati omnis perferendis quaerat quidem rem, sapiente sit tenetur vitae.</p>
+                        <span class="time">
+                            12 دقیقه پیش
+                        </span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="header">
+                            <h3>
+                                Lorem ipsum dolor  dicta dolor dolore enim exercitationem facere facilis illum,
+                            </h3>
+                        </div>
+                        <a class="more" href="">بیشتر بخوانید</a>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet deserunt, eveniet illum ipsa ipsum itaque iure, magni nemo nesciunt obcaecati omnis perferendis quaerat quidem rem, sapiente sit tenetur vitae.</p>
+                        <span class="time">
+                            12 دقیقه پیش
+                        </span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="header">
+                            <h3>
+                                Lorem ipsum dolor  dicta dolor dolore enim exercitationem facere facilis illum,
+                            </h3>
+                        </div>
+                        <a class="more" href="">بیشتر بخوانید</a>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet deserunt, eveniet illum ipsa ipsum itaque iure, magni nemo nesciunt obcaecati omnis perferendis quaerat quidem rem, sapiente sit tenetur vitae.</p>
+                        <span class="time">
+                            12 دقیقه پیش
+                        </span>
+                    </div>
+                    <div class="carousel-cell">
+                        <div class="header">
+                            <h3>
+                                Lorem ipsum dolor  dicta dolor dolore enim exercitationem facere facilis illum,
+                            </h3>
+                        </div>
+                        <a class="more" href="">بیشتر بخوانید</a>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet deserunt, eveniet illum ipsa ipsum itaque iure, magni nemo nesciunt obcaecati omnis perferendis quaerat quidem rem, sapiente sit tenetur vitae.</p>
+                        <span class="time">
+                            12 دقیقه پیش
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -617,7 +642,7 @@
                 </li>
                 <li>
                     <a href="#">About</a>
-                </li>
+                </li> git
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -695,6 +720,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <script src="assets/js/index.js"></script>
+<script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
+
 <!--//bootstrap.bundle.min.js is exactly Bootstrap.js + Popper.js.-->
 <!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
 <!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>-->
