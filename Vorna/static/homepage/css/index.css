@@ -323,8 +323,8 @@ ul ul a {
     transform: rotate(-3deg);
 }
 .myCard{
-    border: #e9ecef 1px solid;
-    border-radius: 4px;
+    border: #c7cacd 1px solid;
+    border-radius: 8px;
     transition: all .3s;
     background-color: #fff;
     margin-bottom: 2px ;
@@ -336,27 +336,31 @@ ul ul a {
     /*        0 41.8px 33.4px rgba(0, 0, 0, 0.086),*/
     /*        0 100px 80px rgba(0, 0, 0, 0.12);*/
 
-    -webkit-box-shadow: 0 5px 3px -3px #777;
-    -moz-box-shadow: 0 5px 3px -3px #777;
-    box-shadow: 0 5px 3px -3px #777;
+    /*-webkit-box-shadow: 0 5px 3px -3px #777;*/
+    /*-moz-box-shadow: 0 5px 3px -3px #777;*/
+    /*box-shadow: 0 5px 3px -3px #777;*/
 
     /*-webkit-box-shadow: 3px 3px 5px 6px #ccc;  !* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ *!*/
     /*-moz-box-shadow:    3px 3px 5px 6px #ccc;  !* Firefox 3.5 - 3.6 *!*/
     /*box-shadow:         3px 3px 5px 6px #ccc;  !* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 *!*/
-
+    /*box-shadow: 0px 12px 39px -19px rgba(0, 0, 0, 0.75);*/
 }
 
 .myCard:hover{
     /*transform: scale(1.05);*/
-    background-color: #f9fcff;
+    background-color: #fcfcfc;
     cursor: pointer;
 }
 .myTable thead{
-    background-color: #fff;
+    background-color: #3f3f3f;
 }
 .myTable th{
     font-weight: lighter !important;
-    color: gray;
+    color: #eeeeee;
+
+}
+.row .myCard{
+    padding: 0 !important;
 }
 div#tradingview_7bf78 {
     height: 400px;
@@ -364,4 +368,94 @@ div#tradingview_7bf78 {
 .tradingview-widget-container {
     width: 100%;
 }
+.table-hover tbody tr:hover{
+    background-color: #f9f9f9 !important;
+    /*transform: scale(1.01);*/
+}
 /************************************************************table-container*************/
+/********************************************************************news*********************/
+.news-title{
+    width: 100%;
+    height: 100%;
+    background-color: #3f3f3f;
+    color: #f2f2f2;
+    text-align: right;
+    font-weight: lighter;
+    /*color: #a4a4a4;*/
+    font-size: 18px;
+    margin-right: 4px;
+    padding: 15px 10%;
+}
+.carousel-wrapper {
+    padding: 6px 0;
+}
+.carousel-wrapper .carousel {
+    width: 100%;
+    height: auto;
+}
+.carousel-wrapper .carousel .carousel-cell {
+    position: relative;
+    left: 400px;
+    border: 1px #d6d6d6 solid;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #ffffff;
+    /*width: 20%;*/
+    min-height: 350px;
+    max-height: 350px;
+    min-width: 275px;
+    max-width: 275px;
+    margin: 5px;
+    transition: transform 500ms ease;
+    -webkit-box-shadow: 0 5px 3px -3px #777;
+    -moz-box-shadow: 0 5px 3px -3px #777;
+    box-shadow: 0 5px 3px -3px #777;
+}
+.carousel-wrapper .carousel .carousel-cell .more {
+    position: absolute;
+    bottom: 6px;
+    right: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #a2a2a2;
+    text-decoration: none;
+    transition: opacity 300ms ease;
+}
+.carousel-wrapper .carousel .carousel-cell .time{
+    left: 14px;
+    position: absolute;
+    bottom: 6px;
+    color: #a2a2a2;
+    font-size: 12px;
+}
+.carousel-wrapper .carousel .carousel-cell .more:hover{
+    color: #505050;
+}
+.carousel-wrapper .carousel .carousel-cell .header{
+    padding: 2px 8px;
+    margin: 0 0 8px 0;
+    min-height: 100px;
+    max-height: 100px;
+    overflow:hidden;
+    /*font-size: 20px;*/
+    border-bottom: 1px #d6d6d6;
+}
+.carousel-wrapper .carousel .carousel-cell .header h3{
+    font-size: 20px;
+}
+.carousel-wrapper .carousel .carousel-cell p{
+    padding: 2px 8px;
+    margin: 4px 0;
+    max-height: 60%;
+    overflow: hidden;
+}
+.carousel-wrapper .carousel .carousel-cell .time{
+
+}
+.carousel-wrapper .carousel .carousel-cell.is-selected {
+    background-color: #fcfcfc;
+
+}
+
+
+/********************************************************************news*********************/
