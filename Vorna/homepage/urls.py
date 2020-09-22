@@ -18,6 +18,10 @@ router.register("CurrencyExchange",
                 views.CurrencyExchangeViewSet, basename='CurrencyExchange')
 router.register("ForexExchange",
                 views.ForexExchangeViewSet, basename='ForexExchange')
+router.register("product",
+                views.InvestingProductViewSet, basename='productExchange')
+router.register("stock",
+                views.InvestingStockViewSet, basename='stockExchange')
 
 
 urlpatterns = [

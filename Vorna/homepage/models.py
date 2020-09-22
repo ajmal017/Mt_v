@@ -41,23 +41,16 @@ class ForexExchange(models.Model):
     forex_rates = models.JSONField()
     timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
 
-# class EURtoUSD(Currency_base):
-#     pass
-# class GBPtoUSD(Currency_base):
-#     pass
-# class AUDtoUSD(Currency_base):
-#     pass
-# class USDtoCAD(Currency_base):
-#     pass
-# class USDtoJPY(Currency_base):
-#     pass
-# class USDtoINR(Currency_base):
-#     pass
-# class USDtoTRY(Currency_base):
-#     pass
-# class USDtoCNY(Currency_base):
-#     pass
-# class USDtoRUB(Currency_base):
-#     pass
-# class USDtoAED(Currency_base):
-#     pass
+
+class InvestingProduct(models.Model):
+    """ Product rates from Investing """
+
+    products = models.JSONField()
+    timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+
+class InvestingStock(models.Model):
+    """ Product rates from Investing """
+
+    stock = models.JSONField()
+    timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
