@@ -112,7 +112,12 @@ class AllRatesViewSet(views.APIView):
         gold = GoldPrice.objects.last()
         gold_data = serializers.GoldPriceSerializer(gold, context={'request': request})
         timestamp = gold_data.data.get("timestamp", None)
-        final = forex_data.data['forex_rates'] + investing_stock_data.data['stock']
-        final += investing_product_data.data['products'] + mex_data.data['exchange_rate'] + gold_data.data['gold']
+        final = {
+            **forex_data.data['forex_rates'],
+            **investing_stock_data.data['stock'],
+            **investing_product_data.data['products'],
+            **mex_data.data['exchange_rate'],
+            **gold_data.data['gold'],
+        }
 
         return Response(final)
