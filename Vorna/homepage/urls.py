@@ -26,11 +26,10 @@ router.register("exchangeIR",
                 views.MexExchangeViewSet, basename='exchangeIR')
 router.register("gold",
                 views.GoldPriceViewSet, basename='gold')
-router.register("final",
-                views.AllRatesViewSet.as_view(), basename='final')
 
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('update/', include(router.urls)),
+    path('update/final', views.AllRatesViewSet.as_view(), basename='final')
 ]
