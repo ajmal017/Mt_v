@@ -12,6 +12,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from inputimeout import inputimeout, TimeoutOccurred
 from timeit import default_timer as timer
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 class Crawler(object):
@@ -29,8 +31,8 @@ class Crawler(object):
 
     }
 
-    url = "https://www.investing.com/commodities/real-time-futures"
-    api_url = ""
+    url = "https://www.investing.com/indices/major-indices"
+    api_url = "https://www.markettime.ir/update/stock/latest/"
     cookie_name = "investing.pk1"
     cookie_loaded = False
 
@@ -66,7 +68,14 @@ class Crawler(object):
         # selector_list = ["td.pid-8830-last", "td.pid-8830-high",
         #                  "td.pid-8830-low", "td.bold",
         #                  "td.bold"]
-        selector_list = [4, 5, 6, 7, 8]
+        selector_list = [3, 4, 5, 6, 7]
+        selector_names = {
+            3:"last",
+            4:"high",
+            5:"low",
+            6:"change_num",
+            7:"change_perc"
+            }
         self.cookie_loaded = self.load_cookies()
         if not self.cookie_loaded:
             print("Cookies are not loaded...\a")
@@ -77,15 +86,23 @@ class Crawler(object):
 
         # Wait for everything to load correctly
         self.driver.implicitly_wait(5)
+        params = {}
         while 1:
             start = timer()
             globals.clear()
             for index in self.indexes:
+                params[self.index_to_name[index]] = {}
                 for j in selector_list:
-                    selector = f'//*[@id="cross_rate_1"]/tbody/tr[{index}]/td[{j}]'
+                    selector = f'//*[@id="cross_rates_container"]/table/tbody/tr[{index}]/td[{j}]'
                     # selector = f"#cross_rate_1 > tbody > tr:nth-child({index}) > {j}"
                     t = self.driver.find_element_by_xpath(selector)
-                    print(f'{self.index_to_name[index]}: {t.text}')
+                    t_text = t.text
+                    name = selector_names[j]
+                    params[self.index_to_name[index]][name] = t_text
+            rates = {"stock": params}
+            r = requests.post(self.api_url, json=rates,
+                              headers=globals.header, verify=False)
+            print(r.text)
             end = timer()
             print(f"Iteration ended on {end-start}")
             time.sleep(5)
@@ -96,6 +113,7 @@ while True:
     try:
         crawler.start()
     except KeyboardInterrupt:
+        crawler.driver.close()
         raise
     except:
         traceback.print_exc()

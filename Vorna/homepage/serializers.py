@@ -11,6 +11,7 @@ class CurrencyExchangeSerializer(serializers.ModelSerializer):
                   'USDINR', 'USDTRY', 'USDCNY', 'USDRUB', 'USDAED', 'timestamp')
         read_only_fields = ('id', )
 
+
 class ForexExchangeSerializer(serializers.ModelSerializer):
     """Serializer class for ForexExchange model"""
 
@@ -35,4 +36,13 @@ class InvestingStockSerializer(serializers.ModelSerializer):
     class Meta:
         model = InvestingStock
         fields = ('id', 'stock', 'timestamp')
+        read_only_fields = ('id',)
+
+
+class MexExchangeSerializer(serializers.ModelSerializer):
+    """ Serializer class for Mex exchange rates """
+
+    class Meta:
+        model = MexExchange
+        fields = ('id', 'exchange_rate', 'timestamp')
         read_only_fields = ('id',)

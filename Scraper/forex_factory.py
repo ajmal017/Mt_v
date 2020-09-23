@@ -12,6 +12,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from inputimeout import inputimeout, TimeoutOccurred
 from timeit import default_timer as timer
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 class Crawler:
@@ -150,12 +152,16 @@ class Crawler:
 
 
 
-worker = Crawler()
+crawler = Crawler()
 while True:
     try:
-        worker.start()
+        crawler.start()
+    except KeyboardInterrupt:
+        crawler.driver.close()
+        crawler.driver.quit()
+        raise
     except Exception as e:
         traceback.print_exc()
         print("\a\a\a\a\a\a\a")
         time.sleep(10)
-        worker.start()
+        crawler.start()

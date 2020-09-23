@@ -22,6 +22,8 @@ router.register("product",
                 views.InvestingProductViewSet, basename='productExchange')
 router.register("stock",
                 views.InvestingStockViewSet, basename='stockExchange')
+router.register("exchangeIR",
+                views.MexExchangeViewSet, basename='exchangeIR')
 
 
 urlpatterns = [

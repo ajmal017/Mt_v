@@ -5,3 +5,4 @@ django-crispy-forms==1.9.*
 Pillow==7.2.*
 django-google-analytics-app==4.4.*
 inputimeout==1.0.*
+beautifulsoup4==4.9.*

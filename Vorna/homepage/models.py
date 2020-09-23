@@ -54,3 +54,10 @@ class InvestingStock(models.Model):
 
     stock = models.JSONField()
     timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+
+class MexExchange(models.Model):
+    """ Currency exchange rates from mex """
+
+    exchange_rate = models.JSONField()
+    timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
