@@ -52,6 +52,6 @@ class GoldPriceSerializer(serializers.ModelSerializer):
     """ Serializer class for Gold price rates """
 
     class Meta:
-        model = MexExchange
+        model = GoldPrice
         fields = ('id', 'gold', 'timestamp')
         read_only_fields = ('id',)
