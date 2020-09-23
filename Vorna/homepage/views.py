@@ -93,3 +93,28 @@ class MexExchangeViewSet(ViewBase):
 class GoldPriceViewSet(ViewBase):
     queryset = GoldPrice.objects.all()
     serializer_class = serializers.GoldPriceSerializer
+
+
+class AllRatesViewSet(views.APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+
+    @action(methods=['GET'], permission_classes=[IsAuthenticatedOrReadOnly], url_path='latest', detail=False)
+    def get_latest(self, request, pk=None):
+        forex = ForexExchange.objects.last()
+        forex_data = ForexExchangeSerializer(forex, context={'request': request})
+        investing_product = InvestingProduct.objects.last()
+        investing_product_data = InvestingProductSerializer(investing_product,
+                                                            context={'request': request})
+        investing_stock = InvestingStock.objects.last()
+        investing_stock_data = InvestingStockSerializer(investing_stock,
+                                                        context={'request': request})
+        mex = MexExchange.objects.last()
+        mex_data = MexExchangeSerializer(mex, context={'request': request})
+        gold = GoldPrice.objects.last()
+        gold_data = GoldPriceSerializer(gold, context={'request': request})
+        final = forex_data + investing_stock_data + investing_product_data
+        final += mex_data + gold_data
+
+        serializer = self.serializer_class(latest)
+        return Response(serializer.data)

@@ -28,7 +28,7 @@ class Crawler(object):
     }
 
     url = "https://www.investing.com/indices/major-indices"
-    api_url = "https://www.markettime.ir/update/stock/latest/"
+    api_url = "https://www.markettime.ir/update/stock/"
     cookie_name = "investing.pk1"
     cookie_loaded = False
 

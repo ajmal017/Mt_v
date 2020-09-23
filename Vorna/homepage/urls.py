@@ -26,6 +26,8 @@ router.register("exchangeIR",
                 views.MexExchangeViewSet, basename='exchangeIR')
 router.register("gold",
                 views.GoldPriceViewSet, basename='gold')
+router.register("final",
+                views.AllRatesViewSet.as_view(), basename='final')
 
 
 urlpatterns = [

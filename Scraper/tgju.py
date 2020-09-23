@@ -24,7 +24,7 @@ class Crawler(object):
 
 
     url = "https://www.tgju.org/"
-    api_url = "https://www.markettime.ir/update/stock/latest/"
+    api_url = "https://www.markettime.ir/update/gold/"
     cookie_name = "investing.pk1"
 
 
@@ -127,10 +127,9 @@ class Crawler(object):
             seke = self.seke()
 
             rates = {"gold": {**tala, **seke}}
-            print(rates)
-            # r = requests.post(self.api_url, json=rates,
-            #                   headers=globals.header, verify=False)
-            # print(r.text)
+            r = requests.post(self.api_url, json=rates,
+                              headers=globals.header, verify=False)
+            print(r.text)
             end = timer()
             print(f"Iteration ended on {end-start}")
             time.sleep(2)

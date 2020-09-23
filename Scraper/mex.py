@@ -1,5 +1,6 @@
 import time
 import requests
+import globals
 from bs4 import BeautifulSoup
 
 

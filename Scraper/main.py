@@ -16,7 +16,7 @@ class Scraper:
 def main():
     clear()
     files = ['investing.py', 'investing_saham.py',
-             'forex_factory.py', 'mex.py']
+             'forex_factory.py', 'mex.py', 'tgju.py']
 
     print(f"{Fore.GREEN}Starting...{Style.RESET_ALL}")
     classes = []
