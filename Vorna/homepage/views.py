@@ -111,7 +111,7 @@ class AllRatesViewSet(views.APIView):
         mex_data = serializers.MexExchangeSerializer(mex, context={'request': request})
         gold = GoldPrice.objects.last()
         gold_data = serializers.GoldPriceSerializer(gold, context={'request': request})
-        final = forex_data.data + investing_stock_data.data
-        final += investing_product_data.data + mex_data.data + gold_data.data
+        final = forex_data._data + investing_stock_data._data
+        final += investing_product_data._data + mex_data._data + gold_data._data
 
         return Response(final)
