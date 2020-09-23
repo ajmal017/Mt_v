@@ -100,17 +100,17 @@ class AllRatesViewSet(views.APIView):
 
     def get(self, request, pk=None):
         forex = ForexExchange.objects.last()
-        forex_data = ForexExchangeSerializer(forex, context={'request': request})
+        forex_data = serializers.ForexExchangeSerializer(forex, context={'request': request})
         investing_product = InvestingProduct.objects.last()
-        investing_product_data = InvestingProductSerializer(investing_product,
+        investing_product_data = serializers.InvestingProductSerializer(investing_product,
                                                             context={'request': request})
         investing_stock = InvestingStock.objects.last()
-        investing_stock_data = InvestingStockSerializer(investing_stock,
+        investing_stock_data = serializers.InvestingStockSerializer(investing_stock,
                                                         context={'request': request})
         mex = MexExchange.objects.last()
-        mex_data = MexExchangeSerializer(mex, context={'request': request})
+        mex_data = serializers.MexExchangeSerializer(mex, context={'request': request})
         gold = GoldPrice.objects.last()
-        gold_data = GoldPriceSerializer(gold, context={'request': request})
+        gold_data = serializers.GoldPriceSerializer(gold, context={'request': request})
         final = forex_data.data + investing_stock_data.data
         final += investing_product_data.data + mex_data.data + gold_data.data
 
