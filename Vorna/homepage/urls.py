@@ -31,5 +31,5 @@ router.register("gold",
 urlpatterns = [
     path('', views.home, name='home'),
     path('update/', include(router.urls)),
-    path('update/final', views.AllRatesViewSet.as_view(), basename='final')
+    path('update/final', views.AllRatesViewSet.as_view(), name='final')
 ]
