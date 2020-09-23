@@ -61,3 +61,10 @@ class MexExchange(models.Model):
 
     exchange_rate = models.JSONField()
     timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+
+class GoldPrice(models.Model):
+    """ Gold exchange rates """
+
+    gold = models.JSONField()
+    timestamp = models.DateTimeField(auto_now=True, blank=True, null=True)

@@ -4,12 +4,9 @@ import time
 import globals
 import pickle
 import requests
-import json
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from inputimeout import inputimeout, TimeoutOccurred
 from timeit import default_timer as timer
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -20,7 +17,6 @@ class Crawler(object):
 
     driver = webdriver.Chrome("chromedriver.exe", options=globals.options)
     indexes = [3, 9, 10, 29, 30, 32]
-    #cross_rates_container > table > tbody > tr:nth-child(29) > td.pid-178-last
     index_to_name = {
         3: "nasdaq",
         9: "DAX",

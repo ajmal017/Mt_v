@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 
 def scrape():
     r = requests.get("http://mex.co.ir/")
+    api_url = 'https://www.markettime.ir/update/exchangeIR/'
     soup = BeautifulSoup(r.content, 'html.parser')
     raw_prices = soup.find_all('span')[0:4]
     prices = [price.text for price in raw_prices]
@@ -13,9 +14,13 @@ def scrape():
         'USD': {'buy': prices[2], 'sell': prices[3]},
     }
     rates = {'exchange': arz}
-    r = requests.post(self.api_url, json=rates,
+    r = requests.post(api_url, json=rates,
                       headers=globals.header, verify=False)
     print(r.text)
 
-
-scrape()
+while 1:
+    try:
+        scrape()
+    except KeyboardInterrupt:
+        raise
+    time.sleep(1800)

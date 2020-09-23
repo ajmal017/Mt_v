@@ -88,3 +88,8 @@ class InvestingStockViewSet(ViewBase):
 class MexExchangeViewSet(ViewBase):
     queryset = MexExchange.objects.all()
     serializer_class = serializers.MexExchangeSerializer
+
+
+class GoldPriceViewSet(ViewBase):
+    queryset = GoldPrice.objects.all()
+    serializer_class = serializers.GoldPriceSerializer
