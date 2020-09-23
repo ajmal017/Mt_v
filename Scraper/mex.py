@@ -14,7 +14,7 @@ def scrape():
         'EUR': {'buy': prices[0], 'sell': prices[1]},
         'USD': {'buy': prices[2], 'sell': prices[3]},
     }
-    rates = {'exchange': arz}
+    rates = {'exchange_rate': arz}
     r = requests.post(api_url, json=rates,
                       headers=globals.header, verify=False)
     print(r.text)
