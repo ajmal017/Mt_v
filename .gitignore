@@ -192,4 +192,4 @@ dmypy.json
 
 /vorna/media
 .vscode/
-/.vs
+/*/.vs
