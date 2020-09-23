@@ -136,7 +136,7 @@ class Crawler:
                     price_text = price.text
                     # name = self.driver.find_element_by_css_selector(a_tag)
                     name_text = self.currency_list[cur_element-1]
-                    params[price_text] = price_text
+                    params[name_text] = price_text
                     print(name_text + ":" + price_text)
             end = timer()
             rates = {'forex_rates' : params}

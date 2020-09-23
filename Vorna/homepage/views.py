@@ -118,6 +118,7 @@ class AllRatesViewSet(views.APIView):
             **investing_product_data.data['products'],
             **mex_data.data['exchange_rate'],
             **gold_data.data['gold'],
+            'timestamp': timestamp,
         }
 
         return Response(final)
