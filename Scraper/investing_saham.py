@@ -64,13 +64,13 @@ class Crawler(object):
         # selector_list = ["td.pid-8830-last", "td.pid-8830-high",
         #                  "td.pid-8830-low", "td.bold",
         #                  "td.bold"]
-        selector_list = [3, 4, 5, 6, 7]
+        selector_list = [3, 6, 7]
         selector_names = {
             3:"last",
-            4:"high",
-            5:"low",
-            6:"change_num",
-            7:"change_perc"
+            # change
+            6:"c",
+            # change percent
+            7:"cprc"
             }
         self.cookie_loaded = self.load_cookies()
         if not self.cookie_loaded:

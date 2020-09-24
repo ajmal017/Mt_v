@@ -115,6 +115,13 @@ class Crawler:
         # Prompt for manual change
         self.manual()
         params = {}
+        k_list = {
+            # low
+            2: 'l',
+            # change
+            3: 'c',
+            4: 'cprc',
+        }
         # Wait for everything to load correctly
         self.driver.implicitly_wait(5)
         while 1:
@@ -130,14 +137,18 @@ class Crawler:
                     cur_element = (row_neg*8)+j
                     if (cur_element) > len(self.currency_list):
                         break
-                    selector =  f"#content > section.content.market_v3 > div.pagearrange__layout.pagearrange__layout--arrangeable.pagearrange__layout--zippable.full > div:nth-child({i}) > div > div > div > div > div.market__scanner > div.slidetable > div > div.slidetable__overflow > table > tr > td.market__scanner-blocks.market__scanner-blocks--8 > table > tr:nth-child(2) > td:nth-child({j})"
-                    # a_tag = f"#content > section.content.market_v3 > div.pagearrange__layout.pagearrange__layout--arrangeable.pagearrange__layout--zippable.full > div:nth-child({i}) > div > div > div > div > div.market__scanner > div.slidetable > div > div.slidetable__overflow > table > tr > td.market__scanner-blocks.market__scanner-blocks--8 > table > tr:nth-child(1) > td:nth-child({j}) > div > a"
-                    price = self.driver.find_element_by_css_selector(selector)
-                    price_text = price.text
-                    # name = self.driver.find_element_by_css_selector(a_tag)
                     name_text = self.currency_list[cur_element-1]
-                    params[name_text] = price_text
-                    print(name_text + ":" + price_text)
+                    params[name_text] = {}
+                    for k in k_list.keys():
+                        selector =  f"#content > section.content.market_v3 > div.pagearrange__layout.pagearrange__layout--arrangeable.pagearrange__layout--zippable.full > div:nth-child({i}) > div > div > div > div > div.market__scanner > div.slidetable > div > div.slidetable__overflow > table > tr > td.market__scanner-blocks.market__scanner-blocks--8 > table > tr:nth-child({k}) > td:nth-child({j})"
+                        price = self.driver.find_element_by_css_selector(selector)
+                        price_text = price.text
+                        # if k == 5:
+                        #     low = price_text.split("|")
+                        #     price_text = low[0]
+                        #     low = low[1]
+                        #     params[name_text]["low"] = low
+                        params[name_text][k_list[k]] = price_text
             end = timer()
             rates = {'forex_rates' : params}
             r = requests.post(self.api_url, json=rates,

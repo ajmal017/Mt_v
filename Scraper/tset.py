@@ -49,10 +49,18 @@ class Crawler():
         while 1:
             page = requests.get(self.url, headers)
             soup = BeautifulSoup(page.content, 'html.parser')
-            
+            try:
+                t = soup.select('div.pn')[15]
+                print(t.text)
+            except KeyboardInterrupt:
+                raise
+            except:
+                pass
+            time.sleep(1)
+
 
 
 
 
 crawler = Crawler()
-crawler.start()
+crawler.scrape()
