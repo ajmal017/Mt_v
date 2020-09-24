@@ -101,7 +101,7 @@ class Crawler(object):
             print(r.text)
             end = timer()
             print(f"Iteration ended on {end-start}")
-            time.sleep(5)
+            time.sleep(2)
 
 
 crawler = Crawler()

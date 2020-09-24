@@ -87,7 +87,7 @@ class Crawler:
         self.load_cookies()
         try:
             prompt = "Do you want to manually change instruments? (Y \ N):\n"
-            manual = inputimeout(prompt=prompt, timeout=10)
+            manual = inputimeout(prompt=prompt, timeout=5)
         except TimeoutOccurred:
             manual = "n"
             print("Timeout...\nUsing pre-existing instruments")
@@ -154,7 +154,6 @@ class Crawler:
             r = requests.post(self.api_url, json=rates,
                               headers=globals.header, verify=False)
 
-            print(r.text)
             print(f"Iteration ended on {end-start}")
             time.sleep(1)
 
