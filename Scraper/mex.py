@@ -2,6 +2,7 @@ import time
 import requests
 import globals
 from bs4 import BeautifulSoup
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
