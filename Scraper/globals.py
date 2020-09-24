@@ -9,7 +9,7 @@ options = webdriver.ChromeOptions()
 prefs = {"profile.managed_default_content_settings.images": 2}
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 options.add_argument("--log-level=3")
-# options.add_argument("--headless")
+options.add_argument("--headless")
 options.add_experimental_option("prefs", prefs)
 
 # Exchange rate price selector
