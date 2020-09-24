@@ -87,6 +87,7 @@ class Crawler(object):
         self.driver.implicitly_wait(5)
         params = {}
         while 1:
+            globals.clear()
             start = timer()
             # globals.clear()
             for index in self.indexes:

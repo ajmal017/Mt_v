@@ -7,6 +7,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 def scrape():
+    globals.clear()
     r = requests.get("http://mex.co.ir/")
     api_url = 'https://www.markettime.ir/update/exchangeIR/'
     soup = BeautifulSoup(r.content, 'html.parser')

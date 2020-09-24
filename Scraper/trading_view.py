@@ -88,7 +88,7 @@ class Crawler():
             self.identify()
             print(self.windows)
             while 1:
-                # clear()
+                globals.clear()
                 print("Visiting pages...")
                 i = 1
                 t = timer()
