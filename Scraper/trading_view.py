@@ -113,6 +113,7 @@ class Crawler():
                 print(f"Batch ended after {t1-t} secs.")
                 time.sleep(1)
         except KeyboardInterrupt:
+            crawler.driver.quit()
             raise
         except Exception as e:
             print(e)

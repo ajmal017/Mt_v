@@ -110,6 +110,7 @@ while True:
         crawler.start()
     except KeyboardInterrupt:
         crawler.driver.close()
+        crawler.driver.quit()
         raise
     except:
         traceback.print_exc()

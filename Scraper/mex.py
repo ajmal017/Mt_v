@@ -26,5 +26,6 @@ while 1:
     try:
         scrape()
     except KeyboardInterrupt:
+        crawler.driver.quit()
         raise
     time.sleep(1800)

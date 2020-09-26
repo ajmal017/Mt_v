@@ -53,6 +53,7 @@ class Crawler():
                 t = soup.select('div.pn')[15]
                 print(t.text)
             except KeyboardInterrupt:
+                crawler.driver.quit()
                 raise
             except:
                 pass
