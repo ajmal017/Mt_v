@@ -16,11 +16,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 class Crawler(object):
 
     driver = webdriver.Chrome("chromedriver.exe", options=globals.options)
-    #main > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(2)
-    #main > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(3)
 
-    #coin-table > tbody > tr:nth-child(2) > td:nth-child(2)
-    #coin-table > tbody > tr:nth-child(3) > td:nth-child(2)
 
 
     url = "https://www.tgju.org/"
@@ -28,9 +24,53 @@ class Crawler(object):
     cookie_name = "investing.pk1"
 
 
+    def tala_row_xpath(self, row, col):
+        selector = f'//*[@id="main"]/div[4]/div[3]/div[2]/table/tbody/tr[{row}]/td[{col}]'
+        price = self.driver.find_element_by_xpath(selector)
+        text = price.text
+        # col_name = tala_col_name[col]
+        if col == 2:
+            # Column 3 is for price change which is composed like xx (xx.xx)
+            change = text.split(" ")
+            text = change[1]
+            change_perc = change[0].replace("(", "").replace(")", "")
+            # Get sign of the change. High class is for + low is for -
+            if price.get_attribute('class') == 'high':
+                change_perc = f'+{change_perc}'
+            else :
+                change_perc = f'-{change_perc}'
+            # data[tala_names[row]][tala_col_name[4]] = change_perc
+            print(change_perc)
+        print(text)
+        return text
+
+
+    def tala_row_old_css(self, row, col):
+        selector = f'#main > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > table > tbody > tr:nth-child({row}) > td:nth-child({col})'
+        price = self.driver.find_element_by_xpath(selector)
+        text = price.text
+        # col_name = tala_col_name[col]
+        if col == 3:
+            # Column 3 is for price change which is composed like xx (xx.xx)
+            change = text.split(" ")
+            text = change[1]
+            change_perc = change[0].replace("(", "").replace(")", "")
+            sign = selector + " > span"
+            sign = self.driver.find_element_by_css_selector(sign)
+            # Get sign of the change. High class is for + low is for -
+            if price.get_attribute('class') == 'high':
+                change_perc = f'+{change_perc}'
+            else :
+                change_perc = f'-{change_perc}'
+            # data[tala_names[row]][tala_col_name[4]] = change_perc
+            print(change_perc)
+        print(text)
+        return text
+
+
     def tala(self):
         tala_row = [1, 2]
-        tala_col = [2, 3]
+        tala_col = [1, 2]
         tala_names = {
             1: 'gold_18',
             2: 'gold_24',
@@ -43,34 +83,56 @@ class Crawler(object):
             # change percent
             4: 'cprc'
         }
+        col_class = {
+            "high": "+",
+            "low": "-",
+            "nf": ""
+        }
         data = {}
         for row in tala_row:
             data[tala_names[row]] = {}
-            for col in tala_col:
-                selector = f'#main > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > table > tbody > tr:nth-child({row}) > td:nth-child({col})'
-                price = self.driver.find_element_by_css_selector(selector)
-                text = price.text
-                col_name = tala_col_name[col]
-                if col == 3:
-                    # Column 3 is for price change which is composed like >
-                    # xxxx (xx.xx) so we split it into two
-                    change = text.split(" ")
-                    text = change[1]
-                    change_perc = change[0].replace("(", "").replace(")", "")
-                    sign = selector + " > span"
-                    sign = self.driver.find_element_by_css_selector(sign)
-                    # Get sign of the change
-                    # High is +
-                    # low is -
-                    if sign.get_attribute('class') == 'high':
-                        change_perc = f'+{change_perc}'
-                    else :
-                        change_perc = f'-{change_perc}'
-                    data[tala_names[row]][tala_col_name[4]] = change_perc
-                # We want our json to be like this:
-                # product : {'l': xx, 'c': xx, 'cprc': xx}
-                data[tala_names[row]][col_name] = text
+            price_selector = f'#main > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > table > tbody > tr:nth-child({row}) > td.nf'
+            price = self.driver.find_element_by_css_selector(price_selector)
+            sign = ""
+            for cls in ['high', 'low', 'nf']:
+                try:
+                    change_selector = f'#main > div:nth-child(5) > div:nth-child(3) > div:nth-child(2) > table > tbody > tr:nth-child({row}) > td.{cls}'
+                    change = self.driver.find_element_by_css_selector(change_selector)
+                    sign = col_class[cls]
+                    break
+                except NoSuchElementException:
+                    pass
+            change = self.driver.find_element_by_css_selector(change_selector)
+            change_text = change.text.split(" ")
+            c = change_text[1]
+            change_perc = change_text[0].replace("(", "").replace(")", "")
+            cprc = f"{sign}{change_perc}"
+            data[tala_names[row]]['l'] = price.text
+            data[tala_names[row]]['c'] = c
+            data[tala_names[row]]['cprc'] = cprc
         return data
+
+
+    def seke_row_old(self, row, col):
+        selector = f'#coin-table > tbody > tr:nth-child({row}) > td:nth-child({col})'
+        #main > div:nth-child(5) > div:nth-child(7) > div:nth-child(18) > table > tbody > tr:nth-child(2) > td.nf
+        price = self.driver.find_element_by_css_selector(selector)
+        text = price.text
+        col_name = tala_col_name[col]
+        if col == 3:
+            change = text.split(" ")
+            text = change[1]
+            change_perc = change[0].replace("(", "").replace(")", "")
+            sign = selector + " > span"
+            sign = self.driver.find_element_by_css_selector(sign)
+            # Get sign of the change
+            # High is +
+            # low is -
+            if sign.get_attribute('class') == 'high':
+                change_perc = f'+{change_perc}'
+            else :
+                change_perc = f'-{change_perc}'
+            data[tala_names[row]][tala_col_name[4]] = change_perc
 
 
     def seke(self):
@@ -92,6 +154,7 @@ class Crawler(object):
             data[tala_names[row]] = {}
             for col in tala_col:
                 selector = f'#coin-table > tbody > tr:nth-child({row}) > td:nth-child({col})'
+                #main > div:nth-child(5) > div:nth-child(7) > div:nth-child(18) > table > tbody > tr:nth-child(2) > td.nf
                 price = self.driver.find_element_by_css_selector(selector)
                 text = price.text
                 col_name = tala_col_name[col]
