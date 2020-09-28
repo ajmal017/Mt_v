@@ -1,6 +1,6 @@
 $(function() {
 		$.ajax({
-			url: "https://www.markettime.ir/update/CurrencyExchange/latest",
+			url: "https://www.markettime.ir/update/final",
 			type: 'GET',
 			async: true,
 			dataType: 'json',
