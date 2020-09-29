@@ -19,10 +19,10 @@ class Crawler(object):
     indexes = [3, 9, 10, 29, 30, 32]
     index_to_name = {
         3: "nasdaq",
-        9: "DAX",
-        10: "FTSE100",
+        9: "dax",
+        10: "ftse100",
         29: "Nikkei225",
-        30: "S&P/ASX200",
+        30: "S&P-ASX200",
         32: "Shanghai",
 
     }

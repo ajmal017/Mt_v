@@ -17,7 +17,7 @@ class Crawler:
 
     driver = webdriver.Chrome("chromedriver.exe", options=globals.options)
     currency_list = [
-     'EUR/USD', 'GBP/USD', 'AUD/USD', 'USD/CAD', 'USD/JPY',
+     'EUR-USD', 'GBP-USD', 'AUD-USD', 'USD-CAD', 'USD-JPY',
      'WTI', 'Brent', 'NatGas', 'Gasoline',
      'Gold', 'Silver', 'Copper', 'Palladium',
      'Platinum',

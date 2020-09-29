@@ -7,6 +7,7 @@ $(function() {
 			success:function(data){
 				$.each(data, function(key,value) {
 					var el = $("#"+key);
+					console.log(el.l);
 					var after = parseFloat(value).toFixed(4);
 					var before = parseFloat(el.text()).toFixed(4);
 					$("#" + key).text(after);
@@ -41,13 +42,14 @@ $(function() {
 
 	setInterval(function(){
 		$.ajax({
-			url: "https://www.markettime.ir/update/CurrencyExchange/latest",
+			url: "https://www.markettime.ir/update/final",
 			type: 'GET',
 			async: true,
 			dataType: 'json',
 			success:function(data){
 				$.each(data, function(key,value) {
 					var el = $("#"+key);
+					console.log(el.l);
 					var after = parseFloat(value).toFixed(4);
 					var before = parseFloat(el.text()).toFixed(4);
 					$("#" + key).text(after);

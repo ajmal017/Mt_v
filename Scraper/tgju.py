@@ -72,8 +72,8 @@ class Crawler(object):
         tala_row = [1, 2]
         tala_col = [1, 2]
         tala_names = {
-            1: 'gold_18',
-            2: 'gold_24',
+            1: 'gold-18',
+            2: 'gold-24',
         }
         tala_col_name = {
             # last
